@@ -51,8 +51,8 @@ static inline void timespecAddUs(timespec *t, uint64_t d)
 
 void waitNextActivation(PeriodicThread *t)  // <-- Updated here
 {
-    clock_nanosleep(CLOCK_REALTIME, TIMER_ABSTIME, &t->r, nullptr);
-    timespecAddUs(&t->r, t->period);
+    clock_nanosleep(CLOCK_REALTIME, TIMER_ABSTIME, &t->next_activation, nullptr);
+    timespecAddUs(&t->next_activation, t->period);
 }
 
 void startPeriodicTimer(PeriodicThread* perThread)  // <-- Updated here
@@ -65,6 +65,6 @@ void startPeriodicTimer(PeriodicThread* perThread)  // <-- Updated here
     std::cout << "Este hilo tiene un periodo esperado de : " << perThread->period / 1000 << " ms. \n";
     std::cout << "El offset de este hilo es de " << perThread->offset << " us.\n";
 
-    clock_gettime(CLOCK_REALTIME, &perThread->r);
-    timespecAddUs(&perThread->r, perThread->offset);
+    clock_gettime(CLOCK_REALTIME, &perThread->next_activation);
+    timespecAddUs(&perThread->next_activation, perThread->offset);
 }

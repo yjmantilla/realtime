@@ -14,7 +14,7 @@
 #ifndef LIB_HPP
 #define LIB_HPP
 
-void produce(int* c);
-void consume(int* c);
+void produce(int* c, int id);
+void consume(int* c, int id);
 
 #endif // LIB_HPP

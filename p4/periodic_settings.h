@@ -17,10 +17,12 @@
 #include <ctime>
 
 struct PeriodicThread {
-    timespec r;
-    int period;
-    int offset;
+    int64_t offset;
+    int64_t period;
     int count;
+    timespec next_activation;
+    void (*taskFunction)(int*, int);  // 1: counter, 2: id
+    int id;  // Added thread ID
 };
 
 void currentTime();
