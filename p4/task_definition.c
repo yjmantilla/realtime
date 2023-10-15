@@ -8,10 +8,10 @@
 
 #include "task_definition.h"
 
-std::queue<int> buffer;
+
 static pthread_mutex_t buffer_mutex;
 const int BUFFER_MAX_SIZE = 10; 
-
+std::queue<int> buffer;
 
 void thread_1(int* c) {
     int random_value = rand() % 100;  // Generate a random integer between 0 and 99
