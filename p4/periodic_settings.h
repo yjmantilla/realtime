@@ -15,14 +15,16 @@
 
 
 #include <ctime>
-
+#include <queue>
+#include <optional>
 struct PeriodicThread {
     int64_t offset;
     int64_t period;
     int count;
     timespec next_activation;
-    void (*taskFunction)(int*, int);  // 1: counter, 2: id
-    int id;  // Added thread ID
+    std::optional<int> (*taskFunction)(int*, int);  // Assuming you added this for the ID
+    int id;  // Assuming you added this for the ID
+    std::queue<std::optional<int>> history;  // Queue to store the history of produced/consumed values
 };
 
 void currentTime();

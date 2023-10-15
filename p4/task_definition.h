@@ -10,11 +10,12 @@
 #include <mutex>
 #include <queue>
 #include <random>
+#include <optional>
 
 #ifndef LIB_HPP
 #define LIB_HPP
 
-void produce(int* c, int id);
-void consume(int* c, int id);
+std::optional<int> produce(int* c, int id);
+std::optional<int> consume(int* c, int id);
 
 #endif // LIB_HPP
