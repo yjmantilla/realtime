@@ -3,7 +3,7 @@
 # UdeA - Oct. 2023
 
 
-CC = gcc
+CC = g++
 CFLAGS = -Wall -g
 LIBRT = -lrt
 LIBPTHREAD = -lpthread
@@ -15,13 +15,13 @@ MAIN = periodic-threads
 
 all: $(MAIN)
 
-$(SETTINGS).o: $(SETTINGS).c $(SETTINGS).h
-	$(CC) $(CFLAGS) -c $(SETTINGS).c $(LIBRT) $(LIBPTHREAD)
+$(SETTINGS).o: $(SETTINGS).cpp $(SETTINGS).h
+	$(CC) $(CFLAGS) -c $(SETTINGS).cpp $(LIBRT) $(LIBPTHREAD)
 
-$(TASKS).o: $(TASKS).c $(TASKS).h
-	$(CC) $(CFLAGS) -c $(TASKS).c $(LIBRT) $(LIBPTHREAD)
+$(TASKS).o: $(TASKS).cpp $(TASKS).h
+	$(CC) $(CFLAGS) -c $(TASKS).cpp $(LIBRT) $(LIBPTHREAD)
 
-$(MAIN): $(MAIN).c $(SETTINGS).o $(TASKS).o
+$(MAIN): $(MAIN).cpp $(SETTINGS).o $(TASKS).o
 	$(CC) $(CFLAGS) -o $@ $^ $(LIBRT) $(LIBPTHREAD)
 
 

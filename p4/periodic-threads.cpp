@@ -83,8 +83,8 @@ int main(int argc, char *argv[])
 	struct periodic_thread *pt1;
 	struct periodic_thread *pt2;
 	
-	pt1 = malloc(sizeof(struct periodic_thread));
-	pt2 = malloc(sizeof(struct periodic_thread));
+	pt1 = new periodic_thread;
+	pt2 = new periodic_thread;
 	
 	/* creation and activation of the new thread */
 
