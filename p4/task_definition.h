@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <pthread.h>
+#include <queue>
 
 #ifndef LIB_HPP
 #define LIB_HPP
