@@ -27,9 +27,10 @@ std::optional<int> produce(int* c, int id)
     if (random_value.has_value()) {
         std::cout << "Thread " << id << " random value: " << random_value.value() << std::endl;
     }
+    lock.unlock();
 
     (*c)++;
-    lock.unlock();
+
     return random_value;
 }
 std::optional<int> consume(int* c, int id)
@@ -47,8 +48,9 @@ std::optional<int> consume(int* c, int id)
     } else {
         std::cout << "Thread " << id << " did not consume a value." << std::endl;
     }
-    (*c)++;
     std::cout << "Thread " << id << " counting: " << *c << std::endl;
     lock.unlock();
+    (*c)++;
+
     return value;
 }

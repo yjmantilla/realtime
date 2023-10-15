@@ -22,8 +22,8 @@ struct PeriodicThread {
     int64_t period;
     int count;
     timespec next_activation;
-    std::optional<int> (*taskFunction)(int*, int);  // Assuming you added this for the ID
-    int id;  // Assuming you added this for the ID
+    std::optional<int> (*taskFunction)(int*, int);
+    int id;
     std::queue<std::optional<int>> history;  // Queue to store the history of produced/consumed values
 };
 

@@ -1,8 +1,3 @@
-# Makefile to compile the Example 11 about Periodic Threads with POSIX Real-Time Extension
-# Written by Gustavo Patino
-# UdeA - Oct. 2023
-
-
 CC = g++
 CFLAGS = -Wall -g
 LIBRT = -lrt
