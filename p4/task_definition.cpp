@@ -7,19 +7,41 @@
 
 #include "task_definition.h"
 
+
+std::mt19937 rng(std::random_device{}());
+// Create a uniform distribution between 0 and 99
+std::uniform_int_distribution<int> dist(0, 99);
+
+std::queue<int> buffer;
+const int BUFFER_MAX_SIZE = 10;  // Set a limit for the buffer
+
 std::mutex lock; // Mutex for synchronization
 
-void thread_1(int* c)
+void produce(int* c)
 {
     lock.lock();
-    (*c)++;
-    std::cout << "Thread 1 counting: " << *c << std::endl;
+
+    int random_value = dist(rng);
+    if (buffer.size() < BUFFER_MAX_SIZE) {
+        buffer.push(random_value);
+        std::cout << "Thread 1 random value: " << random_value << std::endl;
+
+    } else {
+        std::cout << "Buffer is full, dropping value: " << random_value << std::endl;
+    }
     lock.unlock();
 }
 
-void thread_2(int* c)
+void consume(int* c)
 {
     lock.lock();
+    if (!buffer.empty()) {
+        int value = buffer.front();
+        buffer.pop();
+        std::cout << "Thread 2 consumed value: " << value << std::endl;
+    } else {
+        std::cout << "Buffer is empty, nothing to consume." << std::endl;
+    }
     (*c)++;
     std::cout << "Thread 2 counting: " << *c << std::endl;
     lock.unlock();

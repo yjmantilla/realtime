@@ -51,7 +51,7 @@ void* thread1(void* p_d)
 
     while (true) {
         waitNextActivation(temp);
-        thread_1(&(temp->count));
+        produce(&(temp->count));
     }
 }
 
@@ -71,7 +71,7 @@ void* thread2(void* p_d)
 
     while (true) {
         waitNextActivation(temp);
-        thread_2(&(temp->count));
+        consume(&(temp->count));
     }
 }
 

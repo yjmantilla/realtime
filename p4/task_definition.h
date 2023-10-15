@@ -8,11 +8,13 @@
 #include <iostream>
 #include <thread>
 #include <mutex>
+#include <queue>
+#include <random>
 
 #ifndef LIB_HPP
 #define LIB_HPP
 
-void thread_1(int* c);
-void thread_2(int* c);
+void produce(int* c);
+void consume(int* c);
 
 #endif // LIB_HPP
