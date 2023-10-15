@@ -5,22 +5,22 @@
 //      - Medellin, Colombia 2023 -
 /*************************************************/
 
-
 #include "task_definition.h"
 
-static pthread_mutex_t lock;
+std::mutex lock; // Mutex for synchronization
 
 void thread_1(int* c)
 {
-	pthread_mutex_lock(&lock);
-	printf("Thread 1 counting: %d\n", (*c)++);
-	pthread_mutex_unlock(&lock);
+    lock.lock();
+    (*c)++;
+    std::cout << "Thread 1 counting: " << *c << std::endl;
+    lock.unlock();
 }
-
 
 void thread_2(int* c)
 {
-	pthread_mutex_lock(&lock);
-	printf("Thread 2 counting: %d\n", (*c)++);
-	pthread_mutex_unlock(&lock);
+    lock.lock();
+    (*c)++;
+    std::cout << "Thread 2 counting: " << *c << std::endl;
+    lock.unlock();
 }

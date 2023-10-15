@@ -1,92 +1,70 @@
-/*************************************************/
-
-// Prof. Luca Abeni. The Real-Time Operating Systems and Middleware course
-// http://www.dit.unitn.it/~abeni/RTOS/periodic_tasks.c
-
-/*************************************************/
-
-/*************************************************/
-//  - Code modified by Prof. Gustavo Patino  -
-//    - Real-Time Systems (IEO 2547027) -
-//     - University of Antioquia (UdeA) -
-//      - Medellin, Colombia 2022 -
-/*************************************************/
-
 #include <sys/time.h>
 #include <time.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <stdio.h>
-#include <string.h>
-
+#include <cstdlib>
+#include <cstdint>
+#include <iostream>
+#include <string>
+#include <cstring>
 
 //#define DEBUG_MODE
 #include "periodic_settings.h"
 
 #define NSEC_PER_SEC 1000000000ULL
 
-
-void current_time()
+void currentTime()
 {
-	time_t sec;
-	suseconds_t	msec;
-	char zeros[3];	
-	
-	struct timeval tv;
-	
-	gettimeofday(&tv, 0);
+    time_t sec;
+    suseconds_t msec;
+    std::string zeros;
+    
+    struct timeval tv;
+    gettimeofday(&tv, nullptr);
 
-	sec = tv.tv_sec;
-	msec = tv.tv_usec/1000;
-	
-	if (msec < 10)
-		strcpy(zeros, "00");
-	else if (msec < 100)
-		strcpy(zeros, "0");
-	else 		
-		strcpy(zeros, "");
-		
-	printf("\nEl tiempo actual en segundos es: %ld.%s%ld\n", sec, zeros, msec);	
+    sec = tv.tv_sec;
+    msec = tv.tv_usec / 1000;
+    
+    if (msec < 10)
+        zeros = "00";
+    else if (msec < 100)
+        zeros = "0";
+    else 		
+        zeros = "";
+
+    std::cout << "\nEl tiempo actual en segundos es: " << sec << "." << zeros << msec << "\n";	
 }
 
-
-static inline void timespec_add_us(struct timespec *t, uint64_t d)
+static inline void timespecAddUs(timespec *t, uint64_t d)
 {
-// El valor d que llega es en us, entonces se agrega al timespec *t en nanosegundos, multiplicado por 1000. (d*1000 nsec = d usec) 
-// Por esto la funcion se llama "timespec_add_us", o sea, agrega us al timespec.
+    #ifdef DEBUG_MODE
+        std::cout << "\ntimespec t, component sec = " << t->tv_sec << "\n";
+        std::cout << "timespec t, component nsec = " << t->tv_nsec << "\n";
+    #endif
 
-	#ifdef DEBUG_MODE
-		printf("\ntimespec t, component sec =  %ld\n", t->tv_sec);
-		printf("timespec t, component nsec =  %ld\n", t->tv_nsec);
-	#endif
-
-	d *= 1000;
-	d += t->tv_nsec;
-	while (d >= NSEC_PER_SEC) {
-		d -= NSEC_PER_SEC;  // Por cada resta de NSEC_PER_SEC debe agregar un segundo al tv_sec.
-		t->tv_sec += 1;
-	}
-	t->tv_nsec = d;
+    d *= 1000;
+    d += t->tv_nsec;
+    while (d >= NSEC_PER_SEC) {
+        d -= NSEC_PER_SEC;
+        t->tv_sec += 1;
+    }
+    t->tv_nsec = static_cast<long>(d);
 }
 
-
-void wait_next_activation(struct periodic_thread *t)
+void waitNextActivation(PeriodicThread *t)  // <-- Updated here
 {
-    clock_nanosleep(CLOCK_REALTIME, TIMER_ABSTIME, &t->r, NULL);
-    timespec_add_us(&t->r, t->period);
+    clock_nanosleep(CLOCK_REALTIME, TIMER_ABSTIME, &t->r, nullptr);
+    timespecAddUs(&t->r, t->period);
 }
 
-
-void start_periodic_timer(struct periodic_thread* perthread)
+void startPeriodicTimer(PeriodicThread* perThread)  // <-- Updated here
 {
-	#ifdef DEBUG_MODE
-	printf("\nBefore arming the timer: \n");
-	current_time();
-	#endif
+    #ifdef DEBUG_MODE
+        std::cout << "\nBefore arming the timer: \n";
+        currentTime();
+    #endif
 
-	printf("Este hilo tiene un periodo esperado de : %d us. \n", perthread->period);
-	printf("El offset de este hilo es de %d us.\n", perthread->offset);
+    std::cout << "Este hilo tiene un periodo esperado de : " << perThread->period / 1000 << " ms. \n";
+    std::cout << "El offset de este hilo es de " << perThread->offset << " us.\n";
 
-	clock_gettime(CLOCK_REALTIME, &perthread->r);
-	timespec_add_us(&perthread->r, perthread->offset);
+    clock_gettime(CLOCK_REALTIME, &perThread->r);
+    timespecAddUs(&perThread->r, perThread->offset);
 }

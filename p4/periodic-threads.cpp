@@ -20,94 +20,92 @@
 /*************************************************/
 
 
-#include <sys/time.h>
-#include <time.h>
-#include <stdlib.h>
-#include <stdint.h>
-#include <stdio.h>
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+#include <cstdint>
+#include <thread>
+#include <mutex>
 #include <unistd.h>
-#include <pthread.h>
 
 #include "periodic_settings.h"
 #include "task_definition.h"
 
-#define SECONDS_TO_RUN 10
+constexpr int SECONDS_TO_RUN = 10;
 
-static pthread_mutex_t lock;
+static std::mutex mtx;
 
-void *thread1(void* p_d)
+void* thread1(void* p_d)
 {
-	pthread_mutex_lock(&lock);
-	struct periodic_thread* temp = (struct periodic_thread*) p_d;
+    mtx.lock();
+    PeriodicThread* temp = static_cast<PeriodicThread*>(p_d);
 
-	temp->offset = 5000000; // En unidades de us.
-	temp->period = 100000; // En unidades de us.
-	temp->count = 0;
+    temp->offset = 5000000; // En unidades de us.
+    temp->period = 100000; // En unidades de us.
+    temp->count = 0;
 
-	printf("\nThread 1 with period : %d ms. \n", temp->period/1000);
-	start_periodic_timer(temp);
+    std::cout << "\nThread 1 with period : " << temp->period / 1000 << " ms.\n";
+    startPeriodicTimer(temp);
 
-	pthread_mutex_unlock(&lock);
+    mtx.unlock();
 
-	while (1) {
-		wait_next_activation(temp);
-		thread_1(&(temp->count));
-  	}
+    while (true) {
+        waitNextActivation(temp);
+        thread_1(&(temp->count));
+    }
 }
 
-void *thread2(void* p_d)
+void* thread2(void* p_d)
 {
-	pthread_mutex_lock(&lock);
-	struct periodic_thread* temp = (struct periodic_thread*) p_d;
+    mtx.lock();
+    PeriodicThread* temp = static_cast<PeriodicThread*>(p_d);
 
-	temp->offset = 200000;
-	temp->period = 150000;
-	temp->count = 0;
+    temp->offset = 200000;
+    temp->period = 150000;
+    temp->count = 0;
 
-	printf("\nThread 2 with period : %d ms. \n", temp->period/1000);
-	start_periodic_timer(temp);
+    std::cout << "\nThread 2 with period : " << temp->period / 1000 << " ms.\n";
+    startPeriodicTimer(temp);
 
-	pthread_mutex_unlock(&lock);
+    mtx.unlock();
 
-	while (1) {
-		wait_next_activation(temp);
-		thread_2(&(temp->count));
-  	}
+    while (true) {
+        waitNextActivation(temp);
+        thread_2(&(temp->count));
+    }
 }
 
-int main(int argc, char *argv[])
+int main()
 {
-	int err;
-	pthread_t second_id, third_id;
+    int err;
+    pthread_t second_id, third_id;
 
-	struct periodic_thread *pt1;
-	struct periodic_thread *pt2;
-	
-	pt1 = new periodic_thread;
-	pt2 = new periodic_thread;
-	
-	/* creation and activation of the new thread */
+    auto pt1 = new PeriodicThread;
+    auto pt2 = new PeriodicThread;
+    
+    err = pthread_create(&second_id, nullptr, thread1, static_cast<void*>(pt1));
+    if (err != 0) {
+        std::cerr << "Cannot create pthread 1\n";
+    }
 
-	err = pthread_create(&second_id, NULL, thread1, (void*) pt1);
-	if (err != 0) {
-	fprintf(stderr, "Cannot create pthread 1");
-	}
+    err = pthread_create(&third_id, nullptr, thread2, static_cast<void*>(pt2));
+    if (err != 0) {
+        std::cerr << "Cannot create thread 2\n";
+    }
 
-	err = pthread_create(&third_id, NULL, thread2, (void*) pt2);
-	if (err != 0) {
-	fprintf(stderr, "Cannot create thread 2");
-	}
+    sleep(SECONDS_TO_RUN);
 
-	sleep(SECONDS_TO_RUN);
+    mtx.lock();
+    std::cout << "\nThis code just ran for " << SECONDS_TO_RUN << " seconds. This is constexpr parameter.\n\n";
+    std::cout << "Considering the offset of " << pt1->offset << " us, and the period of " << pt1->period << " us, there were " << pt1->count << " iterations of Thread 1.\n";
+    std::cout << "Considering the offset of " << pt2->offset << " us, and the period of " << pt2->period << " us, there were " << pt2->count << " iterations of Thread 2.\n\n\n";
 
-	pthread_mutex_lock(&lock);
-	printf("\nThis code just ran for %d seconds. This is #define parameter.\n\n", SECONDS_TO_RUN);
-	printf("Considering the offset of %d us, and the period of %d us, there were %d iterations of Thread 1.\n", pt1->offset, pt1->period, pt1->count);
-	printf("Considering the offset of %d us, and the period of %d us, there were %d iterations of Thread 2.\n\n\n", pt2->offset, pt2->period, pt2->count);
+    mtx.unlock();
 
-	pthread_mutex_unlock(&lock);
+    //In C++ and with the Standard Library's abstractions, the resource management is typically more automatic than in C. The std::mutex object is automatically destroyed and its resources freed when it goes out of scope (i.e., when the program exits in this case, as it's a global variable). Therefore, you don't need an explicit call like pthread_mutex_destroy().
 
-	pthread_mutex_destroy(&lock);
+    delete pt1;
+    delete pt2;
 
-  return 0;
+    return 0;
 }

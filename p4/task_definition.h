@@ -5,8 +5,9 @@
 //      - Medellin, Colombia 2023 -
 /*************************************************/
 
-#include <stdio.h>
-#include <pthread.h>
+#include <iostream>
+#include <thread>
+#include <mutex>
 
 #ifndef LIB_HPP
 #define LIB_HPP
@@ -14,4 +15,4 @@
 void thread_1(int* c);
 void thread_2(int* c);
 
-#endif
+#endif // LIB_HPP

@@ -14,15 +14,17 @@
 /*************************************************/
 
 
-struct periodic_thread {
-	struct timespec r;
-	int period;
-	int offset;
-	int count;
+#include <ctime>
+
+struct PeriodicThread {
+    timespec r;
+    int period;
+    int offset;
+    int count;
 };
 
-void current_time();
+void currentTime();
 
-void start_periodic_timer(struct periodic_thread* perthread);
+void startPeriodicTimer(PeriodicThread* perThread);
 
-void wait_next_activation(struct periodic_thread *t);
+void waitNextActivation(PeriodicThread* t);
