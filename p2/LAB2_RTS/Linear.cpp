@@ -18,11 +18,6 @@ void fillArray(int* a, int size) {
         a[i] = i;
 }
 
-void linearIndexes(int* index, int numreads) {
-    for(int k = 0; k < numreads; ++k)
-        index[k] = k; //rand() % SIZE;
-}
-
 int iterateSums(int* a, int* index) {
     int d = 0;
     for(int k = 0; k < 1000; ++k) {
@@ -31,6 +26,12 @@ int iterateSums(int* a, int* index) {
     return d;
 }
 
+void makeIndexes(int* index, int numreads) {
+    for(int k = 0; k < numreads; ++k)
+        index[k] = k; //rand() % SIZE;
+}
+
+
 int main() {
     CALLGRIND_START_INSTRUMENTATION;    
     int* a = new int[SIZE];
@@ -38,7 +39,7 @@ int main() {
 
     // array of random index
     int* index = new int[NBR];
-    linearIndexes(index, NBR);
+    makeIndexes(index, NBR);
 
     int d = iterateSums(a, index);
     printf("%d\n", d);
