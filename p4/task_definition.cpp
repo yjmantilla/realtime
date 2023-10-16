@@ -6,12 +6,11 @@ std::mt19937 rng(std::random_device{}());
 std::uniform_int_distribution<int> dist(0, 99);
 
 std::queue<int> buffer;
-const int BUFFER_MAX_SIZE = 10;  // Set a limit for the buffer
-
-std::mutex lock; // Mutex for synchronization
+const int BUFFER_MAX_SIZE = 30;  // Set a limit for the buffer
 
 
-std::optional<int> produce(int* c, int id)
+
+std::optional<int> produce(int* c, int id, std::mutex& lock)
 {
     lock.lock();
 
@@ -33,7 +32,7 @@ std::optional<int> produce(int* c, int id)
 
     return random_value;
 }
-std::optional<int> consume(int* c, int id)
+std::optional<int> consume(int* c, int id,  std::mutex& lock)
 {
     lock.lock();
     std::optional<int> value;

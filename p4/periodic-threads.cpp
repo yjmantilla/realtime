@@ -13,15 +13,15 @@
 
 // Constants to specify the runtime and the periodic timings for the threads.
 constexpr int SECONDS_TO_RUN = 10;
-constexpr int T1 = 100000; // Timing values in microseconds.
-constexpr int T2 = 200000;
-constexpr int T3 = 250000;
-constexpr int T4 = 150000;
+constexpr int T1 = 33333; // Timing values in microseconds.
+constexpr int T2 = 100000;
+constexpr int T3 = 100000;
+constexpr int T4 = 100000;
 
 constexpr int OFF1 = 100000; // Offset values in microseconds.
-constexpr int OFF2 = 150000;
-constexpr int OFF3 = 160000;
-constexpr int OFF4 = 170000;
+constexpr int OFF2 = 133333;
+constexpr int OFF3 = 166666;
+constexpr int OFF4 = 199999;
 
 static std::mutex mtx;  // Mutex used to synchronize threads during print operations.
 
@@ -38,7 +38,7 @@ void* genericThread(void* p_d) {
     // Infinite loop simulating the periodic tasks.
     while (true) {
         waitNextActivation(threadData);  // Wait for the next scheduled execution.
-        std::optional<int> num = threadData->taskFunction(&(threadData->count), threadData->id);  
+        std::optional<int> num = threadData->taskFunction(&(threadData->count), threadData->id, mtx);  
         if (num) {
             threadData->history.push(*num);  // If there's a value, push it to the history.
         }
@@ -52,10 +52,10 @@ int main() {
     std::vector<pthread_t> threadIDs;
 
     // Configurations for the producer and consumer threads.
-    threadConfigs.push_back(new PeriodicThread{T1, OFF1, 0, {}, produce,1});
-    threadConfigs.push_back(new PeriodicThread{T2, OFF2, 0, {}, consume,2});
-    threadConfigs.push_back(new PeriodicThread{T3, OFF3, 0, {}, consume,3});
-    threadConfigs.push_back(new PeriodicThread{T4, OFF4, 0, {}, consume,4});
+    threadConfigs.push_back(new PeriodicThread{OFF1,T1, 0, {}, produce,1});
+    threadConfigs.push_back(new PeriodicThread{OFF2,T2, 0, {}, consume,2});
+    threadConfigs.push_back(new PeriodicThread{OFF3,T3, 0, {}, consume,3});
+    threadConfigs.push_back(new PeriodicThread{OFF4,T4, 0, {}, consume,4});
 
     threadIDs.resize(threadConfigs.size());
 

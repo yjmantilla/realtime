@@ -17,12 +17,13 @@
 #include <ctime>
 #include <queue>
 #include <optional>
+#include <mutex>
 struct PeriodicThread {
     int64_t offset;
     int64_t period;
     int count;
     timespec next_activation;
-    std::optional<int> (*taskFunction)(int*, int);
+    std::optional<int> (*taskFunction)(int*, int, std::mutex&);
     int id;
     std::queue<std::optional<int>> history;  // Queue to store the history of produced/consumed values
 };

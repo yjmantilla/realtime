@@ -15,7 +15,7 @@
 #ifndef LIB_HPP
 #define LIB_HPP
 
-std::optional<int> produce(int* c, int id);
-std::optional<int> consume(int* c, int id);
+std::optional<int> produce(int* c, int id, std::mutex& lock);
+std::optional<int> consume(int* c, int id,  std::mutex& lock);
 
 #endif // LIB_HPP
