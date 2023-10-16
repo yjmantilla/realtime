@@ -1,0 +1,834 @@
+desc: --peak-inaccuracy=0.0 --stacks=yes --heap=yes --time-unit=ms --detailed-freq=1 --threshold=0.0 --massif-out-file=Random.massif
+cmd: ./Random
+time_unit: ms
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=1
+#-----------
+time=4
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=752
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=2
+#-----------
+time=8
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1184
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=3
+#-----------
+time=12
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1488
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=4
+#-----------
+time=16
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=6704
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=5
+#-----------
+time=20
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=7736
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=6
+#-----------
+time=24
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=4272
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=7
+#-----------
+time=27
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=4920
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=8
+#-----------
+time=43
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=4912
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=9
+#-----------
+time=44
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=5864
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=10
+#-----------
+time=155
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=5856
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=11
+#-----------
+time=156
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=4936
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=12
+#-----------
+time=178
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=4928
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=13
+#-----------
+time=182
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1416
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=14
+#-----------
+time=186
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1856
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=15
+#-----------
+time=190
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1384
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=16
+#-----------
+time=192
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1384
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=17
+#-----------
+time=194
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1680
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=18
+#-----------
+time=196
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1400
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=19
+#-----------
+time=198
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1864
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=20
+#-----------
+time=200
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1936
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=21
+#-----------
+time=202
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1664
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=22
+#-----------
+time=204
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1672
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=23
+#-----------
+time=206
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1696
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=24
+#-----------
+time=208
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1912
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=25
+#-----------
+time=210
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1408
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=26
+#-----------
+time=212
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1384
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=27
+#-----------
+time=214
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1952
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=28
+#-----------
+time=216
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1144
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=29
+#-----------
+time=218
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=1128
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=30
+#-----------
+time=220
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=72
+heap_tree=detailed
+n0: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+#-----------
+snapshot=31
+#-----------
+time=223
+mem_heap_B=42015744
+mem_heap_extra_B=4048
+mem_stacks_B=512
+heap_tree=detailed
+n2: 42015744 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 41943040 0x109626: main (Random.cpp:37)
+ n1: 72704 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n0: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+#-----------
+snapshot=32
+#-----------
+time=246
+mem_heap_B=42015744
+mem_heap_extra_B=4048
+mem_stacks_B=440
+heap_tree=detailed
+n2: 42015744 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 41943040 0x109626: main (Random.cpp:37)
+ n1: 72704 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n0: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+#-----------
+snapshot=33
+#-----------
+time=248
+mem_heap_B=42055744
+mem_heap_extra_B=4056
+mem_stacks_B=496
+heap_tree=detailed
+n3: 42055744 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 41943040 0x109626: main (Random.cpp:37)
+ n1: 72704 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n0: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 40000 0x109645: main (Random.cpp:41)
+#-----------
+snapshot=34
+#-----------
+time=250
+mem_heap_B=42055744
+mem_heap_extra_B=4056
+mem_stacks_B=528
+heap_tree=detailed
+n3: 42055744 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 41943040 0x109626: main (Random.cpp:37)
+ n1: 72704 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n0: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 40000 0x109645: main (Random.cpp:41)
+#-----------
+snapshot=35
+#-----------
+time=252
+mem_heap_B=42055744
+mem_heap_extra_B=4056
+mem_stacks_B=488
+heap_tree=detailed
+n3: 42055744 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 41943040 0x109626: main (Random.cpp:37)
+ n1: 72704 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n0: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 40000 0x109645: main (Random.cpp:41)
+#-----------
+snapshot=36
+#-----------
+time=254
+mem_heap_B=42055744
+mem_heap_extra_B=4056
+mem_stacks_B=496
+heap_tree=detailed
+n3: 42055744 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 41943040 0x109626: main (Random.cpp:37)
+ n1: 72704 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n0: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 40000 0x109645: main (Random.cpp:41)
+#-----------
+snapshot=37
+#-----------
+time=256
+mem_heap_B=42055744
+mem_heap_extra_B=4056
+mem_stacks_B=528
+heap_tree=detailed
+n3: 42055744 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 41943040 0x109626: main (Random.cpp:37)
+ n1: 72704 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n0: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 40000 0x109645: main (Random.cpp:41)
+#-----------
+snapshot=38
+#-----------
+time=258
+mem_heap_B=42055744
+mem_heap_extra_B=4056
+mem_stacks_B=496
+heap_tree=detailed
+n3: 42055744 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 41943040 0x109626: main (Random.cpp:37)
+ n1: 72704 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n0: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 40000 0x109645: main (Random.cpp:41)
+#-----------
+snapshot=39
+#-----------
+time=260
+mem_heap_B=42055744
+mem_heap_extra_B=4056
+mem_stacks_B=488
+heap_tree=detailed
+n3: 42055744 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 41943040 0x109626: main (Random.cpp:37)
+ n1: 72704 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n0: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 40000 0x109645: main (Random.cpp:41)
+#-----------
+snapshot=40
+#-----------
+time=263
+mem_heap_B=42055744
+mem_heap_extra_B=4056
+mem_stacks_B=488
+heap_tree=detailed
+n3: 42055744 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 41943040 0x109626: main (Random.cpp:37)
+ n1: 72704 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n0: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 40000 0x109645: main (Random.cpp:41)
+#-----------
+snapshot=41
+#-----------
+time=266
+mem_heap_B=42055744
+mem_heap_extra_B=4056
+mem_stacks_B=488
+heap_tree=detailed
+n3: 42055744 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 41943040 0x109626: main (Random.cpp:37)
+ n1: 72704 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n0: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 40000 0x109645: main (Random.cpp:41)
+#-----------
+snapshot=42
+#-----------
+time=269
+mem_heap_B=42055744
+mem_heap_extra_B=4056
+mem_stacks_B=488
+heap_tree=detailed
+n3: 42055744 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 41943040 0x109626: main (Random.cpp:37)
+ n1: 72704 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n0: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 40000 0x109645: main (Random.cpp:41)
+#-----------
+snapshot=43
+#-----------
+time=272
+mem_heap_B=42055744
+mem_heap_extra_B=4056
+mem_stacks_B=488
+heap_tree=detailed
+n3: 42055744 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 41943040 0x109626: main (Random.cpp:37)
+ n1: 72704 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n0: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 40000 0x109645: main (Random.cpp:41)
+#-----------
+snapshot=44
+#-----------
+time=275
+mem_heap_B=42055744
+mem_heap_extra_B=4056
+mem_stacks_B=488
+heap_tree=detailed
+n3: 42055744 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 41943040 0x109626: main (Random.cpp:37)
+ n1: 72704 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n0: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 40000 0x109645: main (Random.cpp:41)
+#-----------
+snapshot=45
+#-----------
+time=278
+mem_heap_B=42055744
+mem_heap_extra_B=4056
+mem_stacks_B=488
+heap_tree=detailed
+n3: 42055744 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 41943040 0x109626: main (Random.cpp:37)
+ n1: 72704 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n0: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 40000 0x109645: main (Random.cpp:41)
+#-----------
+snapshot=46
+#-----------
+time=281
+mem_heap_B=42055744
+mem_heap_extra_B=4056
+mem_stacks_B=488
+heap_tree=detailed
+n3: 42055744 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 41943040 0x109626: main (Random.cpp:37)
+ n1: 72704 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n0: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 40000 0x109645: main (Random.cpp:41)
+#-----------
+snapshot=47
+#-----------
+time=284
+mem_heap_B=42055744
+mem_heap_extra_B=4056
+mem_stacks_B=2048
+heap_tree=detailed
+n3: 42055744 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 41943040 0x109626: main (Random.cpp:37)
+ n1: 72704 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n0: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 40000 0x109645: main (Random.cpp:41)
+#-----------
+snapshot=48
+#-----------
+time=286
+mem_heap_B=42055744
+mem_heap_extra_B=4056
+mem_stacks_B=2392
+heap_tree=detailed
+n3: 42055744 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 41943040 0x109626: main (Random.cpp:37)
+ n1: 72704 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n0: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 40000 0x109645: main (Random.cpp:41)
+#-----------
+snapshot=49
+#-----------
+time=286
+mem_heap_B=42055744
+mem_heap_extra_B=4056
+mem_stacks_B=2400
+heap_tree=detailed
+n3: 42055744 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 41943040 0x109626: main (Random.cpp:37)
+ n1: 72704 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n0: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 40000 0x109645: main (Random.cpp:41)
+#-----------
+snapshot=50
+#-----------
+time=286
+mem_heap_B=42056768
+mem_heap_extra_B=4064
+mem_stacks_B=2480
+heap_tree=peak
+n4: 42056768 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 41943040 0x109626: main (Random.cpp:37)
+ n1: 72704 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n0: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 40000 0x109645: main (Random.cpp:41)
+ n1: 1024 0x4B0ABA3: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x4B19CDF: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x4B18F5F: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+    n1: 1024 0x4B176D4: _IO_new_file_xsputn (fileops.c:1243)
+     n1: 1024 0x4B176D4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+      n1: 1024 0x4B01CA8: outstring_func (vfprintf-internal.c:239)
+       n1: 1024 0x4B01CA8: __vfprintf_internal (vfprintf-internal.c:1516)
+        n1: 1024 0x4AEC79E: printf (printf.c:33)
+         n0: 1024 0x10968F: main (Random.cpp:45)
+#-----------
+snapshot=51
+#-----------
+time=287
+mem_heap_B=42056768
+mem_heap_extra_B=4064
+mem_stacks_B=2232
+heap_tree=detailed
+n4: 42056768 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 41943040 0x109626: main (Random.cpp:37)
+ n1: 72704 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n0: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 40000 0x109645: main (Random.cpp:41)
+ n1: 1024 0x4B0ABA3: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x4B19CDF: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x4B18F5F: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+    n1: 1024 0x4B176D4: _IO_new_file_xsputn (fileops.c:1243)
+     n1: 1024 0x4B176D4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+      n1: 1024 0x4B01CA8: outstring_func (vfprintf-internal.c:239)
+       n1: 1024 0x4B01CA8: __vfprintf_internal (vfprintf-internal.c:1516)
+        n1: 1024 0x4AEC79E: printf (printf.c:33)
+         n0: 1024 0x10968F: main (Random.cpp:45)
+#-----------
+snapshot=52
+#-----------
+time=288
+mem_heap_B=42056768
+mem_heap_extra_B=4064
+mem_stacks_B=2056
+heap_tree=detailed
+n4: 42056768 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 41943040 0x109626: main (Random.cpp:37)
+ n1: 72704 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n0: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 40000 0x109645: main (Random.cpp:41)
+ n1: 1024 0x4B0ABA3: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x4B19CDF: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x4B18F5F: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+    n1: 1024 0x4B176D4: _IO_new_file_xsputn (fileops.c:1243)
+     n1: 1024 0x4B176D4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+      n1: 1024 0x4B01CA8: outstring_func (vfprintf-internal.c:239)
+       n1: 1024 0x4B01CA8: __vfprintf_internal (vfprintf-internal.c:1516)
+        n1: 1024 0x4AEC79E: printf (printf.c:33)
+         n0: 1024 0x10968F: main (Random.cpp:45)
+#-----------
+snapshot=53
+#-----------
+time=289
+mem_heap_B=73728
+mem_heap_extra_B=16
+mem_stacks_B=272
+heap_tree=detailed
+n4: 73728 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n0: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n1: 1024 0x4B0ABA3: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x4B19CDF: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x4B18F5F: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+    n1: 1024 0x4B176D4: _IO_new_file_xsputn (fileops.c:1243)
+     n1: 1024 0x4B176D4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+      n1: 1024 0x4B01CA8: outstring_func (vfprintf-internal.c:239)
+       n1: 1024 0x4B01CA8: __vfprintf_internal (vfprintf-internal.c:1516)
+        n1: 1024 0x4AEC79E: printf (printf.c:33)
+         n0: 1024 0x10968F: main (Random.cpp:45)
+ n0: 0 0x109626: main (Random.cpp:37)
+ n0: 0 0x109645: main (Random.cpp:41)
+#-----------
+snapshot=54
+#-----------
+time=290
+mem_heap_B=73728
+mem_heap_extra_B=16
+mem_stacks_B=552
+heap_tree=detailed
+n4: 73728 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n0: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n1: 1024 0x4B0ABA3: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x4B19CDF: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x4B18F5F: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+    n1: 1024 0x4B176D4: _IO_new_file_xsputn (fileops.c:1243)
+     n1: 1024 0x4B176D4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+      n1: 1024 0x4B01CA8: outstring_func (vfprintf-internal.c:239)
+       n1: 1024 0x4B01CA8: __vfprintf_internal (vfprintf-internal.c:1516)
+        n1: 1024 0x4AEC79E: printf (printf.c:33)
+         n0: 1024 0x10968F: main (Random.cpp:45)
+ n0: 0 0x109626: main (Random.cpp:37)
+ n0: 0 0x109645: main (Random.cpp:41)
+#-----------
+snapshot=55
+#-----------
+time=291
+mem_heap_B=73728
+mem_heap_extra_B=16
+mem_stacks_B=584
+heap_tree=detailed
+n4: 73728 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n0: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n1: 1024 0x4B0ABA3: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x4B19CDF: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x4B18F5F: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+    n1: 1024 0x4B176D4: _IO_new_file_xsputn (fileops.c:1243)
+     n1: 1024 0x4B176D4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+      n1: 1024 0x4B01CA8: outstring_func (vfprintf-internal.c:239)
+       n1: 1024 0x4B01CA8: __vfprintf_internal (vfprintf-internal.c:1516)
+        n1: 1024 0x4AEC79E: printf (printf.c:33)
+         n0: 1024 0x10968F: main (Random.cpp:45)
+ n0: 0 0x109626: main (Random.cpp:37)
+ n0: 0 0x109645: main (Random.cpp:41)
+#-----------
+snapshot=56
+#-----------
+time=292
+mem_heap_B=73728
+mem_heap_extra_B=16
+mem_stacks_B=504
+heap_tree=detailed
+n4: 73728 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 72704 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 72704 0x4006567: call_init (dl-init.c:33)
+    n1: 72704 0x4006567: _dl_init (dl-init.c:117)
+     n0: 72704 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n1: 1024 0x4B0ABA3: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x4B19CDF: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x4B18F5F: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+    n1: 1024 0x4B176D4: _IO_new_file_xsputn (fileops.c:1243)
+     n1: 1024 0x4B176D4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+      n1: 1024 0x4B01CA8: outstring_func (vfprintf-internal.c:239)
+       n1: 1024 0x4B01CA8: __vfprintf_internal (vfprintf-internal.c:1516)
+        n1: 1024 0x4AEC79E: printf (printf.c:33)
+         n0: 1024 0x10968F: main (Random.cpp:45)
+ n0: 0 0x109626: main (Random.cpp:37)
+ n0: 0 0x109645: main (Random.cpp:41)
+#-----------
+snapshot=57
+#-----------
+time=293
+mem_heap_B=1024
+mem_heap_extra_B=8
+mem_stacks_B=568
+heap_tree=detailed
+n4: 1024 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1024 0x4B0ABA3: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 1024 0x4B19CDF: _IO_doallocbuf (genops.c:347)
+   n1: 1024 0x4B18F5F: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+    n1: 1024 0x4B176D4: _IO_new_file_xsputn (fileops.c:1243)
+     n1: 1024 0x4B176D4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+      n1: 1024 0x4B01CA8: outstring_func (vfprintf-internal.c:239)
+       n1: 1024 0x4B01CA8: __vfprintf_internal (vfprintf-internal.c:1516)
+        n1: 1024 0x4AEC79E: printf (printf.c:33)
+         n0: 1024 0x10968F: main (Random.cpp:45)
+ n0: 0 0x109626: main (Random.cpp:37)
+ n0: 0 0x109645: main (Random.cpp:41)
+ n1: 0 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 0 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 0 0x4006567: call_init (dl-init.c:33)
+    n1: 0 0x4006567: _dl_init (dl-init.c:117)
+     n0: 0 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+#-----------
+snapshot=58
+#-----------
+time=294
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=512
+heap_tree=detailed
+n4: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 0 0x109626: main (Random.cpp:37)
+ n0: 0 0x109645: main (Random.cpp:41)
+ n1: 0 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 0 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 0 0x4006567: call_init (dl-init.c:33)
+    n1: 0 0x4006567: _dl_init (dl-init.c:117)
+     n0: 0 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n1: 0 0x4B0ABA3: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 0 0x4B19CDF: _IO_doallocbuf (genops.c:347)
+   n1: 0 0x4B18F5F: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+    n1: 0 0x4B176D4: _IO_new_file_xsputn (fileops.c:1243)
+     n1: 0 0x4B176D4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+      n1: 0 0x4B01CA8: outstring_func (vfprintf-internal.c:239)
+       n1: 0 0x4B01CA8: __vfprintf_internal (vfprintf-internal.c:1516)
+        n1: 0 0x4AEC79E: printf (printf.c:33)
+         n0: 0 0x10968F: main (Random.cpp:45)
+#-----------
+snapshot=59
+#-----------
+time=295
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=520
+heap_tree=detailed
+n4: 0 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n0: 0 0x109626: main (Random.cpp:37)
+ n0: 0 0x109645: main (Random.cpp:41)
+ n1: 0 0x490A939: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 0 0x400647D: call_init.part.0 (dl-init.c:70)
+   n1: 0 0x4006567: call_init (dl-init.c:33)
+    n1: 0 0x4006567: _dl_init (dl-init.c:117)
+     n0: 0 0x40202C9: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n1: 0 0x4B0ABA3: _IO_file_doallocate (filedoalloc.c:101)
+  n1: 0 0x4B19CDF: _IO_doallocbuf (genops.c:347)
+   n1: 0 0x4B18F5F: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+    n1: 0 0x4B176D4: _IO_new_file_xsputn (fileops.c:1243)
+     n1: 0 0x4B176D4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+      n1: 0 0x4B01CA8: outstring_func (vfprintf-internal.c:239)
+       n1: 0 0x4B01CA8: __vfprintf_internal (vfprintf-internal.c:1516)
+        n1: 0 0x4AEC79E: printf (printf.c:33)
+         n0: 0 0x10968F: main (Random.cpp:45)
