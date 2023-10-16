@@ -1,0 +1,16 @@
+nano cheddar.bash
+
+definir ruta CHEDDAR_INSTALL_PATH
+
+source cheddar.bash
+
+echo $CHEDD completar tab
+
+capacidad tiempo de servicio o burst time
+
+user@user-Virtual-Machine:~/Downloads/Cheddar-3.2-Linux64-bin$ ./cheddar
+
+
+utilizacion cpu eje de abajo, correr ejemplo wikipedia
+
+toca definir procesador core y espacio de direccionamiento antes de definir tareas.
