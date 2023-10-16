@@ -18,8 +18,8 @@ void fillArray(int* a, int size) {
         a[i] = i;
 }
 
-void randomIndexes(int* index, int size) {
-    for(int k = 0; k < size; ++k)
+void randomIndexes(int* index, int numreads) {
+    for(int k = 0; k < numreads; ++k)
         index[k] = rand() % SIZE;
 }
 
