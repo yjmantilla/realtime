@@ -6,31 +6,36 @@
 #define SIZE 10485760
 #define NBR 10000
 
+int randomAccessSum(int* a, int* index) {
+    int sum = 0;
+    for(int n = 0; n < NBR; ++n)
+        sum += a[index[n]];
+    return sum;
+}
 
+void fillArray(int* a, int size) {
+    for(int i = 0; i < size; i++)
+        a[i] = i;
+}
 
- int main() {
+void linearIndexes(int* index, int size) {
+    for(int k = 0; k < size; ++k)
+        index[k] = k;
+}
+
+int main() {
     CALLGRIND_START_INSTRUMENTATION;    
 // array of data
     int* a = new int[SIZE];
-    for(int i = 0; i < SIZE; i++)
-        a[i] = i;
+    fillArray(a, SIZE);
 
     // array of random index
     int* index = new int[NBR];
-    for(int k = 0; k < NBR; ++k){
-        index[k] = k;
-        printf("index %d\n", k);
-    }
+    linearIndexes(index, NBR);
+
     int d = 0;
     for(int k = 0; k < 1000; ++k) {
-        int c = 0;
-
-        // random fashion access
-        for(int n = 0; n < NBR; ++n)
-            c += a[index[n]];
-            printf("c %d\n", c);
-
-        d += c;
+        d+=randomAccessSum(a, index);
     }
 
     printf("%d\n", d);
