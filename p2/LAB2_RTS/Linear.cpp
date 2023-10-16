@@ -5,6 +5,7 @@
 
 #define SIZE 10485760
 #define NBR 10000
+#define FIX true
 
 int indexedAccessSum(int* a, int* index) {
     int sum = 0;
@@ -31,7 +32,6 @@ void makeIndexes(int* index, int numreads) {
         index[k] = k; //rand() % SIZE;
 }
 
-
 int main() {
     CALLGRIND_START_INSTRUMENTATION;    
     int* a = new int[SIZE];
@@ -43,6 +43,12 @@ int main() {
 
     int d = iterateSums(a, index);
     printf("%d\n", d);
+
+    if (FIX) {
+        delete [] a;
+        delete [] index;
+    }
+
     CALLGRIND_STOP_INSTRUMENTATION;
     return 0;
 }

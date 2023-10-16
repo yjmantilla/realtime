@@ -5,6 +5,7 @@
 
 #define SIZE 10485760
 #define NBR 10000
+#define FIX true
 
 int indexedAccessSum(int* a, int* index) {
     int sum = 0;
@@ -42,6 +43,12 @@ int main() {
 
     int d = iterateSums(a, index);
     printf("%d\n", d);
+
+    if (FIX) {
+        delete [] a;
+        delete [] index;
+    }
+
     CALLGRIND_STOP_INSTRUMENTATION;
     return 0;
 }
