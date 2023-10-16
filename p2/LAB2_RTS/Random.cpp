@@ -37,7 +37,6 @@ int main() {
     int* a = new int[SIZE];
     fillArray(a, SIZE);
 
-    // array of random index
     int* index = new int[NBR];
     makeIndexes(index, NBR);
 
