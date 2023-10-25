@@ -1,0 +1,6 @@
+user@user-Virtual-Machine:~/realtime/p3/PR3_Pruebas$ aarch64-rpi4-linux-gnu-gcc -o salida-arch64_raspberry test.c
+user@user-Virtual-Machine:~/realtime/p3/PR3_Pruebas$ ./salida-arch64_raspberry
+bash: ./salida-arch64_raspberry: cannot execute binary file: Exec format error
+user@user-Virtual-Machine:~/realtime/p3/PR3_Pruebas$ file salida-arch64_raspberry
+salida-arch64_raspberry: ELF 64-bit LSB executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, for GNU/Linux 6.5.5, with debug_info, not stripped
+

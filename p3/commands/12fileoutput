@@ -1,0 +1,3 @@
+user@user-Virtual-Machine:~/realtime/p3/PR3_Pruebas$ file salida-x86-ubuntu
+salida-x86-ubuntu: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=6561d5ddb7a60e5a85eedbcfa9fe92d48ebbe3e4, for GNU/Linux 3.2.0, not stripped
+

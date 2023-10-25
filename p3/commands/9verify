@@ -1,0 +1,48 @@
+user@user-Virtual-Machine:~/crosstool-ng/samples$ cd $HOME/x-tools/aarch64-rpi4-linux-gnu/bin/
+user@user-Virtual-Machine:~/x-tools/aarch64-rpi4-linux-gnu/bin$ ls -al
+total 110524
+dr-xr-xr-x 2 user user     4096 oct 24 17:09 .
+dr-xr-xr-x 9 user user     4096 oct 24 17:09 ..
+-r-xr-xr-x 1 user user  1415200 oct 24 17:09 aarch64-rpi4-linux-gnu-addr2line
+-r-xr-xr-x 2 user user  1447784 oct 24 17:09 aarch64-rpi4-linux-gnu-ar
+-r-xr-xr-x 2 user user  2631888 oct 24 17:09 aarch64-rpi4-linux-gnu-as
+-r-xr-xr-x 2 user user  1686672 oct 24 17:09 aarch64-rpi4-linux-gnu-c++
+lrwxrwxrwx 1 user user       26 oct 24 17:07 aarch64-rpi4-linux-gnu-cc -> aarch64-rpi4-linux-gnu-gcc
+-r-xr-xr-x 1 user user  1410592 oct 24 17:09 aarch64-rpi4-linux-gnu-c++filt
+-r-xr-xr-x 1 user user  1686672 oct 24 17:09 aarch64-rpi4-linux-gnu-cpp
+-r-xr-xr-x 1 user user     5327 oct 24 16:12 aarch64-rpi4-linux-gnu-ct-ng.config
+-r-xr-xr-x 1 user user  2734656 oct 24 17:09 aarch64-rpi4-linux-gnu-dwp
+-r-xr-xr-x 1 user user    43704 oct 24 17:09 aarch64-rpi4-linux-gnu-elfedit
+-r-xr-xr-x 2 user user  1686672 oct 24 17:09 aarch64-rpi4-linux-gnu-g++
+-r-xr-xr-x 2 user user  1686672 oct 24 17:09 aarch64-rpi4-linux-gnu-gcc
+-r-xr-xr-x 2 user user  1686672 oct 24 17:09 aarch64-rpi4-linux-gnu-gcc-13.2.0
+-r-xr-xr-x 1 user user    35456 oct 24 17:09 aarch64-rpi4-linux-gnu-gcc-ar
+-r-xr-xr-x 1 user user    35456 oct 24 17:09 aarch64-rpi4-linux-gnu-gcc-nm
+-r-xr-xr-x 1 user user    35456 oct 24 17:09 aarch64-rpi4-linux-gnu-gcc-ranlib
+-r-xr-xr-x 1 user user  1175792 oct 24 17:09 aarch64-rpi4-linux-gnu-gcov
+-r-xr-xr-x 1 user user  1011888 oct 24 17:09 aarch64-rpi4-linux-gnu-gcov-dump
+-r-xr-xr-x 1 user user   975016 oct 24 17:09 aarch64-rpi4-linux-gnu-gcov-tool
+-r-xr-xr-x 1 user user 11651632 oct 24 17:09 aarch64-rpi4-linux-gnu-gdb
+-r-xr-xr-x 1 user user     4627 oct 24 17:08 aarch64-rpi4-linux-gnu-gdb-add-index
+-r-xr-xr-x 1 user user  4513816 oct 24 17:09 aarch64-rpi4-linux-gnu-gp-archive
+-r-xr-xr-x 1 user user  4530072 oct 24 17:09 aarch64-rpi4-linux-gnu-gp-collect-app
+-r-xr-xr-x 1 user user   592174 oct 24 16:59 aarch64-rpi4-linux-gnu-gp-display-html
+-r-xr-xr-x 1 user user  4505464 oct 24 17:09 aarch64-rpi4-linux-gnu-gp-display-src
+-r-xr-xr-x 1 user user  4599672 oct 24 17:09 aarch64-rpi4-linux-gnu-gp-display-text
+-r-xr-xr-x 1 user user  1481856 oct 24 17:09 aarch64-rpi4-linux-gnu-gprof
+-r-xr-xr-x 1 user user  4501400 oct 24 17:09 aarch64-rpi4-linux-gnu-gprofng
+-r-xr-xr-x 1 user user      143 oct 24 16:59 aarch64-rpi4-linux-gnu-ld
+-r-xr-xr-x 2 user user  3180656 oct 24 17:09 aarch64-rpi4-linux-gnu-ld.bfd
+-r-xr-xr-x 1 user user    15066 oct 24 17:09 aarch64-rpi4-linux-gnu-ldd
+-r-xr-xr-x 2 user user  5238424 oct 24 17:09 aarch64-rpi4-linux-gnu-ld.gold
+-r-xr-xr-x 1 user user 33935720 oct 24 17:09 aarch64-rpi4-linux-gnu-lto-dump
+-r-xr-xr-x 2 user user  1436416 oct 24 17:09 aarch64-rpi4-linux-gnu-nm
+-r-xr-xr-x 2 user user  1566536 oct 24 17:09 aarch64-rpi4-linux-gnu-objcopy
+-r-xr-xr-x 2 user user  3041160 oct 24 17:09 aarch64-rpi4-linux-gnu-objdump
+-r-xr-xr-x 1 user user    10493 oct 24 17:09 aarch64-rpi4-linux-gnu-populate
+-r-xr-xr-x 2 user user  1447816 oct 24 17:09 aarch64-rpi4-linux-gnu-ranlib
+-r-xr-xr-x 2 user user  1047192 oct 24 17:09 aarch64-rpi4-linux-gnu-readelf
+-r-xr-xr-x 1 user user  1414976 oct 24 17:09 aarch64-rpi4-linux-gnu-size
+-r-xr-xr-x 1 user user  1419200 oct 24 17:09 aarch64-rpi4-linux-gnu-strings
+-r-xr-xr-x 2 user user  1566536 oct 24 17:09 aarch64-rpi4-linux-gnu-strip
+

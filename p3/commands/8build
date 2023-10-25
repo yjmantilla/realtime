@@ -1,0 +1,206 @@
+user@user-Virtual-Machine:~/crosstool-ng/samples$ ct-ng build
+[INFO ]  Performing some trivial sanity checks
+[WARN ]  Number of open files 1024 may not be sufficient to build the toolchain; increasing to 2048
+[INFO ]  Build started 20231024.161204
+[INFO ]  Building environment variables
+[WARN ]  Directory '/home/user/src' does not exist.
+[WARN ]  Will not save downloaded tarballs to local storage.
+[EXTRA]  Preparing working directories
+[EXTRA]  Installing user-supplied crosstool-NG configuration
+[EXTRA]  =================================================================
+[EXTRA]  Dumping internal crosstool-NG configuration
+[EXTRA]    Building a toolchain for:
+[EXTRA]      build  = x86_64-pc-linux-gnu
+[EXTRA]      host   = x86_64-pc-linux-gnu
+[EXTRA]      target = aarch64-rpi4-linux-gnu
+[EXTRA]  Dumping internal crosstool-NG configuration: done in 0.04s (at 00:01)
+[INFO ]  =================================================================
+[INFO ]  Retrieving needed toolchain components' tarballs
+[EXTRA]    Retrieving 'linux-6.5.5'
+[EXTRA]    Verifying SHA512 checksum for 'linux-6.5.5.tar.xz'
+[EXTRA]    Retrieving 'zlib-1.2.13'
+[EXTRA]    Verifying SHA512 checksum for 'zlib-1.2.13.tar.xz'
+[EXTRA]    Retrieving 'zstd-1.5.5'
+[EXTRA]    Verifying SHA512 checksum for 'zstd-1.5.5.tar.gz'
+[EXTRA]    Retrieving 'gmp-6.2.1'
+[EXTRA]    Verifying SHA512 checksum for 'gmp-6.2.1.tar.xz'
+[EXTRA]    Retrieving 'mpfr-4.2.1'
+[EXTRA]    Verifying SHA512 checksum for 'mpfr-4.2.1.tar.xz'
+[EXTRA]    Retrieving 'isl-0.26'
+[EXTRA]    Verifying SHA512 checksum for 'isl-0.26.tar.xz'
+[EXTRA]    Retrieving 'mpc-1.3.1'
+[EXTRA]    Verifying SHA512 checksum for 'mpc-1.3.1.tar.gz'
+[EXTRA]    Retrieving 'expat-2.5.0'
+[EXTRA]    Verifying SHA512 checksum for 'expat-2.5.0.tar.xz'
+[EXTRA]    Retrieving 'ncurses-6.4'
+[EXTRA]    Verifying SHA512 checksum for 'ncurses-6.4.tar.gz'
+[EXTRA]    Retrieving 'libiconv-1.16'
+[EXTRA]    Verifying SHA512 checksum for 'libiconv-1.16.tar.gz'
+[EXTRA]    Retrieving 'gettext-0.21'
+[EXTRA]    Verifying SHA512 checksum for 'gettext-0.21.tar.xz'
+[EXTRA]    Retrieving 'binutils-2.40'
+[EXTRA]    Verifying SHA512 checksum for 'binutils-2.40.tar.xz'
+[EXTRA]    Retrieving 'gcc-13.2.0'
+[EXTRA]    Verifying SHA512 checksum for 'gcc-13.2.0.tar.xz'
+[EXTRA]    Retrieving 'glibc-2.38'
+[EXTRA]    Verifying SHA512 checksum for 'glibc-2.38.tar.xz'
+[EXTRA]    Retrieving 'gdb-13.2'
+[EXTRA]    Verifying SHA512 checksum for 'gdb-13.2.tar.xz'
+[INFO ]  Retrieving needed toolchain components' tarballs: done in 2674.53s (at 44:36)
+[INFO ]  =================================================================
+[INFO ]  Extracting and patching toolchain components
+[EXTRA]    Extracting linux-6.5.5
+[EXTRA]    Patching linux-6.5.5
+[EXTRA]    Extracting zlib-1.2.13
+[EXTRA]    Patching zlib-1.2.13
+[EXTRA]    Extracting zstd-1.5.5
+[EXTRA]    Patching zstd-1.5.5
+[EXTRA]    Extracting gmp-6.2.1
+[EXTRA]    Patching gmp-6.2.1
+[EXTRA]    Extracting mpfr-4.2.1
+[EXTRA]    Patching mpfr-4.2.1
+[EXTRA]    Extracting isl-0.26
+[EXTRA]    Patching isl-0.26
+[EXTRA]    Extracting mpc-1.3.1
+[EXTRA]    Patching mpc-1.3.1
+[EXTRA]    Extracting expat-2.5.0
+[EXTRA]    Patching expat-2.5.0
+[EXTRA]    Extracting ncurses-6.4
+[EXTRA]    Patching ncurses-6.4
+[EXTRA]    Extracting libiconv-1.16
+[EXTRA]    Patching libiconv-1.16
+[EXTRA]    Extracting gettext-0.21
+[EXTRA]    Patching gettext-0.21
+[EXTRA]    Extracting binutils-2.40
+[EXTRA]    Patching binutils-2.40
+[EXTRA]    Extracting gcc-13.2.0
+[EXTRA]    Patching gcc-13.2.0
+[EXTRA]    Extracting glibc-2.38
+[EXTRA]    Patching glibc-2.38
+[EXTRA]    Extracting gdb-13.2
+[EXTRA]    Patching gdb-13.2
+[INFO ]  Extracting and patching toolchain components: done in 28.89s (at 45:05)
+[INFO ]  =================================================================
+[INFO ]  Installing ncurses for build
+[EXTRA]    Configuring ncurses
+[EXTRA]    Building ncurses
+[EXTRA]    Installing ncurses
+[INFO ]  Installing ncurses for build: done in 15.51s (at 45:20)
+[INFO ]  =================================================================
+[INFO ]  Installing zlib for host
+[EXTRA]    Configuring zlib
+[EXTRA]    Building zlib
+[EXTRA]    Installing zlib
+[INFO ]  Installing zlib for host: done in 0.61s (at 45:21)
+[INFO ]  =================================================================
+[INFO ]  Installing zstd for host
+[EXTRA]    Building zstd
+[EXTRA]    Installing zstd
+[INFO ]  Installing zstd for host: done in 5.38s (at 45:26)
+[INFO ]  =================================================================
+[INFO ]  Installing GMP for host
+[EXTRA]    Configuring GMP
+[EXTRA]    Building GMP
+[EXTRA]    Installing GMP
+[INFO ]  Installing GMP for host: done in 15.45s (at 45:42)
+[INFO ]  =================================================================
+[INFO ]  Installing MPFR for host
+[EXTRA]    Configuring MPFR
+[EXTRA]    Building MPFR
+[EXTRA]    Installing MPFR
+[INFO ]  Installing MPFR for host: done in 9.06s (at 45:51)
+[INFO ]  =================================================================
+[INFO ]  Installing ISL for host
+[EXTRA]    Configuring ISL
+[EXTRA]    Building ISL
+[EXTRA]    Installing ISL
+[INFO ]  Installing ISL for host: done in 12.24s (at 46:03)
+[INFO ]  =================================================================
+[INFO ]  Installing MPC for host
+[EXTRA]    Configuring MPC
+[EXTRA]    Building MPC
+[EXTRA]    Installing MPC
+[INFO ]  Installing MPC for host: done in 3.50s (at 46:07)
+[INFO ]  =================================================================
+[INFO ]  Installing expat for host
+[EXTRA]    Configuring expat
+[EXTRA]    Building expat
+[EXTRA]    Installing expat
+[INFO ]  Installing expat for host: done in 4.79s (at 46:11)
+[INFO ]  =================================================================
+[INFO ]  Installing ncurses for host
+[EXTRA]    Configuring ncurses
+[EXTRA]    Building ncurses
+[EXTRA]    Installing ncurses
+[INFO ]  Installing ncurses for host: done in 15.73s (at 46:27)
+[INFO ]  =================================================================
+[INFO ]  Installing libiconv for host
+[EXTRA]    Skipping (included in GNU C library)
+[INFO ]  Installing libiconv for host: done in 0.01s (at 46:27)
+[INFO ]  =================================================================
+[INFO ]  Installing gettext for host
+[EXTRA]    Skipping (included in GNU C library)
+[INFO ]  Installing gettext for host: done in 0.01s (at 46:27)
+[INFO ]  =================================================================
+[INFO ]  Installing binutils for host
+[EXTRA]    Configuring binutils
+[EXTRA]    Building binutils
+[EXTRA]    Installing binutils
+[EXTRA]    Installing ld wrapper
+[INFO ]  Installing binutils for host: done in 65.38s (at 47:33)
+[INFO ]  =================================================================
+[INFO ]  Installing kernel headers
+[EXTRA]    Installing kernel headers
+[INFO ]  Installing kernel headers: done in 5.39s (at 47:38)
+[INFO ]  =================================================================
+[INFO ]  Installing core C gcc compiler
+[EXTRA]    Configuring core C gcc compiler
+[EXTRA]    Building gcc
+[EXTRA]    Installing gcc
+[EXTRA]    Housekeeping for core gcc compiler
+[EXTRA]       '' --> lib (gcc)   lib64 (os)
+[INFO ]  Installing core C gcc compiler: done in 182.34s (at 50:40)
+[INFO ]  =================================================================
+[INFO ]  Installing C library
+[INFO ]    =================================================================
+[INFO ]    Building for multilib 1/1: ''
+[EXTRA]      Configuring C library
+[EXTRA]      Building C library
+[EXTRA]      Installing C library
+[INFO ]    Building for multilib 1/1: '': done in 80.13s (at 52:01)
+[INFO ]  Installing C library: done in 80.18s (at 52:01)
+[INFO ]  =================================================================
+[INFO ]  Installing final gcc compiler
+[EXTRA]    Configuring final gcc compiler
+[EXTRA]    Building final gcc compiler
+[EXTRA]    Installing final gcc compiler
+[EXTRA]    Housekeeping for final gcc compiler
+[EXTRA]       '' --> lib (gcc)   lib64 (os)
+[INFO ]  Installing final gcc compiler: done in 197.31s (at 55:18)
+[INFO ]  =================================================================
+[INFO ]  Installing cross-gdb
+[EXTRA]    Configuring cross gdb
+[EXTRA]    Building cross gdb
+[EXTRA]    Installing cross gdb
+[EXTRA]    Installing '.gdbinit' template
+[INFO ]  Installing cross-gdb: done in 91.88s (at 56:50)
+[INFO ]  =================================================================
+[INFO ]  Installing gdb server
+[EXTRA]    Configuring native gdb
+[EXTRA]    Building native gdb
+[EXTRA]    Installing native gdb
+[INFO ]  Installing gdb server: done in 22.48s (at 57:12)
+[INFO ]  =================================================================
+[INFO ]  Finalizing the toolchain's directory
+[INFO ]    Stripping all toolchain executables
+[EXTRA]    Installing the populate helper
+[EXTRA]    Installing a cross-ldd helper
+[EXTRA]    Creating toolchain aliases
+[EXTRA]    Removing installed documentation
+[EXTRA]    Collect license information from: /home/user/crosstool-ng/samples/.build/aarch64-rpi4-linux-gnu/src
+[EXTRA]    Put the license information to: /home/user/x-tools/aarch64-rpi4-linux-gnu/share/licenses
+[INFO ]  Finalizing the toolchain's directory: done in 3.82s (at 57:16)
+[INFO ]  Build completed at 20231024.170919
+[INFO ]  (elapsed: 57:15.39)
+[INFO ]  Finishing installation (may take a few seconds)...
+

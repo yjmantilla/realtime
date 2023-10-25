@@ -1,0 +1,33 @@
+# Compiler for x86 Ubuntu
+CC_UBUNTU = gcc
+
+# Compiler for Raspberry Pi 4
+CC_RPI4 = aarch64-rpi4-linux-gnu-gcc
+
+# Source file
+SOURCE = test.c
+
+# Output binary names
+OUT_UBUNTU = salida-x86-ubuntu
+OUT_RPI4 = salida-arch64_raspberry
+
+# Compiler flags (add any desired flags here)
+CFLAGS = -Wall
+
+.PHONY: all ubuntu rpi4 clean
+
+# Default target
+all: ubuntu rpi4
+
+# Target for x86 Ubuntu
+ubuntu:
+	$(CC_UBUNTU) $(CFLAGS) $(SOURCE) -o $(OUT_UBUNTU)
+
+# Target for Raspberry Pi 4
+rpi4:
+	$(CC_RPI4) $(CFLAGS) $(SOURCE) -o $(OUT_RPI4)
+
+# Clean target to remove output binaries
+clean:
+	rm -f $(OUT_UBUNTU) $(OUT_RPI4)
+

@@ -1,0 +1,4 @@
+user@user-Virtual-Machine:~/x-tools/aarch64-rpi4-linux-gnu/bin$ echo ' ' >> ~/.bashrc
+user@user-Virtual-Machine:~/x-tools/aarch64-rpi4-linux-gnu/bin$ echo ' ## CONFIGURATION VARIABLE FOR ARCH64 TOOLCHAIN ## ' >> ~/.bashrc
+user@user-Virtual-Machine:~/x-tools/aarch64-rpi4-linux-gnu/bin$ echo ' export PATH=$PATH:$HOME/x-tools/aarch64-rpi4-linux-gnu/bin/' >> ~/.bashrc
+user@user-Virtual-Machine:~/x-tools/aarch64-rpi4-linux-gnu/bin$ source ~/.bashrc

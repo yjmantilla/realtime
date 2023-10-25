@@ -1,0 +1,5 @@
+user@user-Virtual-Machine:~/crosstool-ng$ echo ' ' >> ~/.bashrc
+user@user-Virtual-Machine:~/crosstool-ng$ echo ' ## CROSSTOOL-NG CONFIGURATION VARIABLE ## ' >> ~/.bashrc
+user@user-Virtual-Machine:~/crosstool-ng$ echo ' export PATH=$PATH:/home/user/realtime/p3/CT-NG/bin' >> ~/.bashrc
+user@user-Virtual-Machine:~/crosstool-ng$ source ~/.bashrc
+

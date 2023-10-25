@@ -1,0 +1,52 @@
+user@user-Virtual-Machine:~/crosstool-ng$ ./bootstrap
+INFO  :: *** Generating package version descriptions
+INFO  :: Master packages: autoconf automake avr-libc binutils bison cloog dtc duma elf2flt expat gcc gdb gettext glibc gmp gnuprumcu isl libelf libiconv libtool linux ltrace m4 make mingw-w64 moxiebox mpc mpfr musl ncurses newlib-nano newlib picolibc strace uClibc-ng zlib zstd
+INFO  :: Generating 'config/versions/autoconf.in'
+INFO  :: Generating 'config/versions/automake.in'
+INFO  :: Generating 'config/versions/avr-libc.in'
+INFO  :: Generating 'config/versions/binutils.in'
+INFO  :: Generating 'config/versions/bison.in'
+INFO  :: Generating 'config/versions/cloog.in'
+INFO  :: Generating 'config/versions/dtc.in'
+INFO  :: Generating 'config/versions/duma.in'
+INFO  :: Generating 'config/versions/elf2flt.in'
+INFO  :: Generating 'config/versions/expat.in'
+INFO  :: Generating 'config/versions/gcc.in'
+INFO  :: Generating 'config/versions/gdb.in'
+INFO  :: Generating 'config/versions/gettext.in'
+INFO  :: Generating 'config/versions/glibc.in'
+INFO  :: Generating 'config/versions/gmp.in'
+INFO  :: Generating 'config/versions/gnuprumcu.in'
+INFO  :: Generating 'config/versions/isl.in'
+INFO  :: Generating 'config/versions/libelf.in'
+INFO  :: Generating 'config/versions/libiconv.in'
+INFO  :: Generating 'config/versions/libtool.in'
+INFO  :: Generating 'config/versions/linux.in'
+INFO  :: Generating 'config/versions/ltrace.in'
+INFO  :: Generating 'config/versions/m4.in'
+INFO  :: Generating 'config/versions/make.in'
+INFO  :: Generating 'config/versions/mingw-w64.in'
+INFO  :: Generating 'config/versions/moxiebox.in'
+INFO  :: Generating 'config/versions/mpc.in'
+INFO  :: Generating 'config/versions/mpfr.in'
+INFO  :: Generating 'config/versions/musl.in'
+INFO  :: Generating 'config/versions/ncurses.in'
+INFO  :: Generating 'config/versions/newlib-nano.in'
+INFO  :: Generating 'config/versions/newlib.in'
+INFO  :: Generating 'config/versions/picolibc.in'
+INFO  :: Generating 'config/versions/strace.in'
+INFO  :: Generating 'config/versions/uClibc-ng.in'
+INFO  :: Generating 'config/versions/zlib.in'
+INFO  :: Generating 'config/versions/zstd.in'
+INFO  :: *** Generating menu/choice selections
+INFO  :: Generating arch.in (choice)
+INFO  :: Generating kernel.in (choice)
+INFO  :: Generating cc.in (choice)
+INFO  :: Generating binutils.in (choice)
+INFO  :: Generating libc.in (choice)
+INFO  :: Generating debug.in (menu)
+INFO  :: Generating comp_tools.in (menu)
+INFO  :: Generating comp_libs.in (menu)
+INFO  :: *** Gathering the list of data files to install
+INFO  :: *** Running autoreconf
+INFO  :: *** Done!

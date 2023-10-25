@@ -1,0 +1,44 @@
+/usr/bin/gmake  all-recursive
+gmake[1]: Entering directory '/home/user/crosstool-ng'
+Making all in kconfig
+gmake[2]: Entering directory '/home/user/crosstool-ng/kconfig'
+  LEX      lexer.lex.c
+  YACC     parser.tab.c
+/usr/bin/gmake  all-am
+gmake[3]: Entering directory '/home/user/crosstool-ng/kconfig'
+  CC       conf.o
+  CC       confdata.o
+  CC       expr.o
+  CC       symbol.o
+  CC       preprocess.o
+  CC       util.o
+  CC       parser.tab.o
+  CC       lexer.lex.o
+  CCLD     conf
+  CC       nconf-nconf.o
+  CC       nconf-nconf.gui.o
+  CC       nconf-confdata.o
+  CC       nconf-expr.o
+  CC       nconf-symbol.o
+  CC       nconf-preprocess.o
+  CC       nconf-util.o
+  CC       nconf-parser.tab.o
+  CC       nconf-lexer.lex.o
+  CCLD     nconf
+  CC       mconf.o
+  CC       lxdialog/checklist.o
+  CC       lxdialog/inputbox.o
+  CC       lxdialog/menubox.o
+  CC       lxdialog/textbox.o
+  CC       lxdialog/util.o
+  CC       lxdialog/yesno.o
+  CCLD     mconf
+gmake[3]: Leaving directory '/home/user/crosstool-ng/kconfig'
+gmake[2]: Leaving directory '/home/user/crosstool-ng/kconfig'
+gmake[2]: Entering directory '/home/user/crosstool-ng'
+  GEN      ct-ng
+  GEN      bash-completion/ct-ng
+  GEN      docs/ct-ng.1
+gmake[2]: Leaving directory '/home/user/crosstool-ng'
+gmake[1]: Leaving directory '/home/user/crosstool-ng'
+

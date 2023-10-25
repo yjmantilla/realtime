@@ -1,0 +1,8 @@
+user@user-Virtual-Machine:~/realtime/p3$ cd PR3_Pruebas/
+user@user-Virtual-Machine:~/realtime/p3/PR3_Pruebas$ touch test.c
+user@user-Virtual-Machine:~/realtime/p3/PR3_Pruebas$ echo '#include <stdio.h>' >> test.c
+user@user-Virtual-Machine:~/realtime/p3/PR3_Pruebas$ echo 'int main() { printf("Hello, world!\n"); return 0; }' >> test.c
+user@user-Virtual-Machine:~/realtime/p3/PR3_Pruebas$ gcc -o salida-x86-ubuntu test.c
+user@user-Virtual-Machine:~/realtime/p3/PR3_Pruebas$ ./salida-x86-ubuntu
+Hello, world!
+
