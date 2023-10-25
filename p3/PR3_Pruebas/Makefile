@@ -12,7 +12,7 @@ OUT_UBUNTU = predatorPreyX86-ubuntu
 OUT_RPI4 = predatorPreyARM
 
 # Compiler flags (add any desired flags here)
-CXXFLAGS = -Wall -std=c++11
+CXXFLAGS = -Wall -std=c++11 -static
 
 .PHONY: all ubuntu rpi4 clean
 
