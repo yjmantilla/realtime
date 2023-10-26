@@ -4,14 +4,14 @@
 
 class Predator {
 public:
-    Predator(int initialNumber, int consumptionRate, int reproductionRate);  // Add reproductionRate parameter
+    Predator(int initialNumber, int consumptionRate, int reproductionRate);
     int getNumber() const;
     void consumePrey(int& preyNumber);
-    void reproduce();  // Add this method
+    void reproduce();
 private:
     int number;
     int consumptionRate;
-    int reproductionRate;  // Add this member variable
+    int reproductionRate;
 };
 
 #endif
