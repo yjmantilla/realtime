@@ -15,7 +15,7 @@ void Predator::consumePrey(int& preyNumber) {
     preyNumber -= predatorsThatEat * consumptionRate;
 }
 
-void Predator::reproduce() {  // Implement this method
+void Predator::reproduce() {
     number += (number / 2) * reproductionRate;  // For simplicity, assuming every two predators produce reproductionRate new predators
 }
 
