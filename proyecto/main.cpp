@@ -48,7 +48,7 @@ int main(int argc, char* argv[]) {
 
         pthread_attr_init(&attr);
         pthread_attr_setinheritsched(&attr, PTHREAD_EXPLICIT_SCHED);
-        pthread_attr_setschedpolicy(&attr, SCHED_RR); // SCHED_FIFO Or SCHED_RR
+        pthread_attr_setschedpolicy(&attr, SCHED_FIFO); // SCHED_FIFO Or SCHED_RR
 
         struct sched_param param;
         param.sched_priority = tasks[i].priority; // alculate_priority(tasks[i]); // Calculate priority based on task properties
