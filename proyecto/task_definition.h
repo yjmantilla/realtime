@@ -1,21 +1,12 @@
-/*************************************************/
-//  - Code by Prof. Gustavo Patino  -
-//    - Real-Time Systems (IEO 2547027) -
-//     - University of Antioquia (UdeA) -
-//      - Medellin, Colombia 2023 -
-/*************************************************/
+#ifndef TASKS_H
+#define TASKS_H
 
-#include <iostream>
-#include <thread>
-#include <mutex>
-#include <queue>
-#include <random>
-#include <optional>
+void sched_bus_code();
+void data_code();
+void control_code();
+void radio_code();
+void video_code();
+void measure_code();
+void forecast_code();
 
-#ifndef LIB_HPP
-#define LIB_HPP
-
-std::optional<int> produce(int* c, int id, std::mutex& lock);
-std::optional<int> consume(int* c, int id,  std::mutex& lock);
-
-#endif // LIB_HPP
+#endif // TASKS_H

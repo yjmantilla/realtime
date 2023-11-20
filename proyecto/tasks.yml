@@ -1,0 +1,32 @@
+SCHED_BUS:
+  deadline: 25ms
+  period: 25ms
+  wcet: 5ms
+DATA:
+  deadline: 25ms
+  period: 25ms
+  wcet: 5ms
+  resource: InfoBus
+CONTROL:
+  deadline: 50ms
+  period: 50ms
+  wcet: 5ms
+  resource: InfoBus
+RADIO:
+  deadline: 50ms
+  period: 50ms
+  wcet: 5ms
+VIDEO:
+  deadline: 50ms
+  period: 50ms
+  wcet: 5ms
+MEASURE:
+  deadline: 100ms
+  period: 100ms
+  wcet: 10ms
+  resource: InfoBus
+FORECAST:
+  deadline: 100ms
+  period: 100ms
+  wcet: 15ms
+  resource: InfoBus

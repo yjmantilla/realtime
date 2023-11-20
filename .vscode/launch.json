@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "C/C++ Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.o", // Update this to the path of your compiled executable
+            "args": [], // Command line arguments for your program if needed
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}", // Set the working directory to your project folder
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "C/C++: gcc build active file", // This assumes you have a build task named "C/C++: Build active file"
+            "miDebuggerPath": "/usr/bin/gdb" // Update this path to your GDB executable
+        }
+    ]
+}
