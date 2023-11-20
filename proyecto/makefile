@@ -35,6 +35,6 @@ $(TARGET): $(OBJ)
 # Clean target for removing compiled files
 clean:
 	rm -f $(TARGET) $(OBJ)
-
+	rm -f *_log.csv
 # Phony targets
 .PHONY: all rpi4 clean

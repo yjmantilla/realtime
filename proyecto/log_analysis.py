@@ -14,4 +14,4 @@ all_logs.sort_values(by='Timestamp', inplace=True)
 # ...
 
 # Optionally, save the merged logs
-all_logs.to_csv("merged_logs.csv", index=False)
+all_logs.to_csv("merged_log.csv", index=False)

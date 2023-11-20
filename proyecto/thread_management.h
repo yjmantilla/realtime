@@ -10,6 +10,7 @@ extern std::atomic<bool> run_flag;
 typedef void (*task_code)(void);
 
 typedef struct {
+    int priority;              // Priority
     const char* name;          // Task name
     int period_ms;             // Task period in milliseconds
     int wcet_ms;               // Worst-case execution time in milliseconds

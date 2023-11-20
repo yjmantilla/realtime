@@ -17,10 +17,10 @@ int calculate_priority(const task_t& task) {
 }
 
 int main(int argc, char* argv[]) {
-    int runtime_seconds = 1; // Default runtime value
+    int runtime_ms = 100; // Default runtime value
 
     if (argc >= 2) {
-        runtime_seconds = std::atoi(argv[1]);
+        runtime_ms = std::atof(argv[1]);
     }
 
     auto start = std::chrono::high_resolution_clock::now();
@@ -30,13 +30,13 @@ int main(int argc, char* argv[]) {
 
     // Define task properties
     task_t tasks[] = {
-        {"SCHED_BUS",25, 5, NULL, sched_bus_code},        // SCHED_BUS
-        {"DATA",25, 5, &infobus_mutex, data_code},   // DATA
-        {"CONTROL",50, 5, &infobus_mutex, control_code},// CONTROL
-        {"RADIO",50, 5, NULL, radio_code},            // RADIO
-        {"VIDEO",50, 5, NULL, video_code},            // VIDEO
-        {"MEASURE",100, 10, &infobus_mutex, measure_code}, // MEASURE
-        {"FORECAST",100, 15, &infobus_mutex, forecast_code} // FORECAST
+        {7,"SCHED_BUS", 25, 5, NULL, sched_bus_code},        // SCHED_BUS
+        {6,"DATA",25, 5, &infobus_mutex, data_code},   // DATA
+        {5,"CONTROL", 50, 5, &infobus_mutex, control_code},// CONTROL
+        {4,"RADIO", 50, 5, NULL, radio_code},            // RADIO
+        {3,"VIDEO", 50, 5, NULL, video_code},            // VIDEO
+        {2,"MEASURE", 100, 10, &infobus_mutex, measure_code}, // MEASURE
+        {1,"FORECAST", 100, 15, &infobus_mutex, forecast_code} // FORECAST
     };
 
     const int num_tasks = sizeof(tasks) / sizeof(task_t);
@@ -47,11 +47,11 @@ int main(int argc, char* argv[]) {
     for (int i = 0; i < num_tasks; i++) {
 
         pthread_attr_init(&attr);
-        //pthread_attr_setinheritsched(&attr, PTHREAD_EXPLICIT_SCHED);
-        pthread_attr_setschedpolicy(&attr, SCHED_FIFO); // Or SCHED_RR
+        pthread_attr_setinheritsched(&attr, PTHREAD_EXPLICIT_SCHED);
+        pthread_attr_setschedpolicy(&attr, SCHED_RR); // SCHED_FIFO Or SCHED_RR
 
         struct sched_param param;
-        param.sched_priority = calculate_priority(tasks[i]); // Calculate priority based on task properties
+        param.sched_priority = tasks[i].priority; // alculate_priority(tasks[i]); // Calculate priority based on task properties
         pthread_attr_setschedparam(&attr, &param);
 
         pthread_create(&threads[i], &attr, generalized_thread, (void *)&tasks[i]);
@@ -61,7 +61,7 @@ int main(int argc, char* argv[]) {
 
     while (true) {
         auto now = std::chrono::high_resolution_clock::now();
-        if (std::chrono::duration_cast<std::chrono::seconds>(now - start).count() >= runtime_seconds) {
+        if (std::chrono::duration_cast<std::chrono::milliseconds>(now - start).count() >= runtime_ms) {
             run_flag = false; // Signal threads to stop
             break;
         }
