@@ -93,7 +93,7 @@ void* generalized_thread(void *arg) {
 
         end = std::chrono::system_clock::now();
         elapsed = end - start;
-        remainingTime_ms = task->wcet_ms - elapsed.count();
+        remainingTime_ms = task->period_ms - elapsed.count();
         if (remainingTime_ms < 0.0){
             log_message(task->name,format_message(-1*remainingTime_ms));
         }
