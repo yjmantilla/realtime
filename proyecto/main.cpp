@@ -32,9 +32,9 @@ int main(int argc, char* argv[]) {
     task_t tasks[] = {
         {7,"SCHED_BUS", 25, 5, NULL, sched_bus_code},        // SCHED_BUS
         {6,"DATA",25, 5, &infobus_mutex, data_code},   // DATA
-        {5,"CONTROL", 50, 5, &infobus_mutex, control_code},// CONTROL
+        //{5,"CONTROL", 50, 5, &infobus_mutex, control_code},// CONTROL
         {4,"RADIO", 50, 5, NULL, radio_code},            // RADIO
-        {3,"VIDEO", 50, 5, NULL, video_code},            // VIDEO
+        //{3,"VIDEO", 50, 5, NULL, video_code},            // VIDEO
         {2,"MEASURE", 100, 10, &infobus_mutex, measure_code}, // MEASURE
         {1,"FORECAST", 100, 15, &infobus_mutex, forecast_code} // FORECAST
     };
