@@ -8,7 +8,6 @@
 #include <unistd.h>
 
 std::atomic<bool> run_flag(true);
-int LOG = 1;
 
 // Function to create formatted message
 std::string format_message(float value) {
@@ -17,7 +16,7 @@ std::string format_message(float value) {
     return stream.str();
 }
 
-void log_message(const char* task_name, const std::string& message) {
+void log_message(const char* task_name, const std::string& message, int LOG) {
     if (LOG) {
         std::string filename = std::string(task_name) + "_log.csv";
 
@@ -56,16 +55,16 @@ void* generalized_thread(void *arg) {
     while (run_flag) {
         auto start = std::chrono::system_clock::now();
         // Log task start
-        log_message(task->name, "Task started");
+        log_message(task->name, "Task started",task->log);
 
         if (task->mutex) {
             // Log resource acquisition attempt
-            log_message(task->name, "Attempting to acquire resource");
+            log_message(task->name, "Attempting to acquire resource",task->log);
 
             pthread_mutex_lock(task->mutex);
 
             // Log resource acquisition
-            log_message(task->name, "Resource acquired");
+            log_message(task->name, "Resource acquired",task->log);
         }
 
         task->task_function();
@@ -84,18 +83,18 @@ void* generalized_thread(void *arg) {
             pthread_mutex_unlock(task->mutex);
 
             // Log resource release
-            log_message(task->name, "Resource released");
+            log_message(task->name, "Resource released",task->log);
         }
 
 
         // Log task end
-        log_message(task->name, "Task completed");
+        log_message(task->name, "Task completed",task->log);
 
         end = std::chrono::system_clock::now();
         elapsed = end - start;
         remainingTime_ms = task->period_ms - elapsed.count();
         if (remainingTime_ms < 0.0){
-            log_message(task->name,format_message(-1*remainingTime_ms));
+            log_message(task->name,format_message(-1*remainingTime_ms),task->log);
         }
 
         // Calculate next execution time

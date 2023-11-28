@@ -18,9 +18,12 @@ int calculate_priority(const task_t& task) {
 
 int main(int argc, char* argv[]) {
     int runtime_ms = 100; // Default runtime value
-
-    if (argc >= 2) {
+    int log=0;
+    if (argc >= 3) {
         runtime_ms = std::atof(argv[1]);
+        log = std::atoi(argv[2]);
+    }else{
+        return 1;
     }
 
     auto start = std::chrono::high_resolution_clock::now();
@@ -30,13 +33,13 @@ int main(int argc, char* argv[]) {
 
     // Define task properties
     task_t tasks[] = {
-        {7,"SCHED_BUS", 25, 5, NULL, sched_bus_code},        // SCHED_BUS
-        {6,"DATA",25, 5, &infobus_mutex, data_code},   // DATA
-        //{5,"CONTROL", 50, 5, &infobus_mutex, control_code},// CONTROL
-        {4,"RADIO", 50, 5, NULL, radio_code},            // RADIO
-        //{3,"VIDEO", 50, 5, NULL, video_code},            // VIDEO
-        {2,"MEASURE", 100, 10, &infobus_mutex, measure_code}, // MEASURE
-        {1,"FORECAST", 100, 15, &infobus_mutex, forecast_code} // FORECAST
+        {7,"SCHED_BUS", 25, 5, NULL, sched_bus_code, log},        // SCHED_BUS
+        {6,"DATA",25, 5, &infobus_mutex, data_code, log},   // DATA
+        //{5,"CONTROL", 50, 5, &infobus_mutex, control_code, log},// CONTROL
+        {4,"RADIO", 50, 5, NULL, radio_code, log},            // RADIO
+        //{3,"VIDEO", 50, 5, NULL, video_code, log},            // VIDEO
+        {2,"MEASURE", 100, 10, &infobus_mutex, measure_code, log}, // MEASURE
+        {1,"FORECAST", 100, 15, &infobus_mutex, forecast_code, log} // FORECAST
     };
 
     const int num_tasks = sizeof(tasks) / sizeof(task_t);

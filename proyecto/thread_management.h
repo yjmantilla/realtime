@@ -16,9 +16,10 @@ typedef struct {
     int wcet_ms;               // Worst-case execution time in milliseconds
     pthread_mutex_t* mutex;    // Optional mutex for shared resource
     task_code task_function;   // Function pointer to the task-specific code
+    int log;
 } task_t;
 
-void log_message(const char* task_name, const std::string& message);
+void log_message(const char* task_name, const std::string& message, int LOG);
 
 void* generalized_thread(void *arg);
 
