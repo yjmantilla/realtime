@@ -19,7 +19,7 @@ typedef struct {
     int log;
 } task_t;
 
-void log_message(const char* task_name, const std::string& message, int LOG);
+double log_message(const char* task_name, const std::string& message, int LOG);
 
 void* generalized_thread(void *arg);
 

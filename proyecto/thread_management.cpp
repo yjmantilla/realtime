@@ -16,7 +16,8 @@ std::string format_message(float value) {
     return stream.str();
 }
 
-void log_message(const char* task_name, const std::string& message, int LOG) {
+double log_message(const char* task_name, const std::string& message, int LOG) {
+    auto start = std::chrono::system_clock::now();
     if (LOG) {
         std::string filename = std::string(task_name) + "_log.csv";
 
@@ -45,26 +46,30 @@ void log_message(const char* task_name, const std::string& message, int LOG) {
         log_file << '.' << std::setfill('0') << std::setw(9) << now_ns.count();
         log_file << "," << message << std::endl;
     }
+    auto end = std::chrono::system_clock::now();
+    std::chrono::duration<double, std::milli> elapsed = end - start;
+    return elapsed.count();
 }
 
 
 void* generalized_thread(void *arg) {
     task_t *task = (task_t *) arg;
     struct timespec next_execution_time;
-
+    double debug_loss = 0;
     while (run_flag) {
+        debug_loss=0;
         auto start = std::chrono::system_clock::now();
         // Log task start
-        log_message(task->name, "Task started",task->log);
+        debug_loss+=log_message(task->name, "Task started",task->log);
 
         if (task->mutex) {
             // Log resource acquisition attempt
-            log_message(task->name, "Attempting to acquire resource",task->log);
+            debug_loss+=log_message(task->name, "Attempting to acquire resource",task->log);
 
             pthread_mutex_lock(task->mutex);
 
             // Log resource acquisition
-            log_message(task->name, "Resource acquired",task->log);
+            debug_loss+= log_message(task->name, "Resource acquired",task->log);
         }
 
         task->task_function();
@@ -75,26 +80,26 @@ void* generalized_thread(void *arg) {
         // Simulate task execution (WCET)
         double remainingTime_ms = task->wcet_ms - elapsed.count();
 
-        if (remainingTime_ms > 1.0) { // give time to logging
-            usleep(static_cast<useconds_t>((remainingTime_ms-1) * 1000));
+        if (remainingTime_ms > 0.0) { // dont account time for logging
+            usleep(static_cast<useconds_t>((remainingTime_ms) * 1000));
         }
 
         if (task->mutex) {
             pthread_mutex_unlock(task->mutex);
 
             // Log resource release
-            log_message(task->name, "Resource released",task->log);
+            debug_loss+=log_message(task->name, "Resource released",task->log);
         }
 
 
         // Log task end
-        log_message(task->name, "Task completed",task->log);
+        debug_loss+=log_message(task->name, "Task completed",task->log);
 
         end = std::chrono::system_clock::now();
         elapsed = end - start;
-        remainingTime_ms = task->period_ms - elapsed.count();
+        remainingTime_ms = task->period_ms + debug_loss - elapsed.count();
         if (remainingTime_ms < 0.0){
-            log_message(task->name,format_message(-1*remainingTime_ms),task->log);
+            debug_loss += log_message(task->name,format_message(-1*remainingTime_ms),task->log);
         }
 
         // Calculate next execution time
