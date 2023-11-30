@@ -158,19 +158,19 @@ void* generalized_thread(void *arg) {
 
         if (task->mutex) {
             // Log resource acquisition attempt
-            //debug_loss+=log_message(task->name, "Attempting to acquire InfoBus resource",task->log,0);
+            debug_loss+=log_message(task->name, "Attempting to acquire InfoBus resource",task->log,0);
 
             pthread_mutex_lock(task->mutex);
 
             // Log resource acquisition
-            //debug_loss+= log_message(task->name, "InfoBus Resource acquired",task->log,0);
+            debug_loss+= log_message(task->name, "InfoBus Resource acquired",task->log,0);
         }
 
         if (task->cpumutex){
-            //debug_loss+=log_message(task->name, "Attempting to acquire CPUmutex",task->log,0);
+            debug_loss+=log_message(task->name, "Attempting to acquire CPUmutex",task->log,0);
             pthread_mutex_lock(task->cpumutex);
-            printf("cpumutex");
-            //debug_loss+= log_message(task->name, "CPUmutex Resource acquired",task->log,0);
+            //printf("cpumutex");
+            debug_loss+= log_message(task->name, "CPUmutex Resource acquired",task->log,0);
         }
 
         auto start = std::chrono::system_clock::now();
@@ -216,7 +216,7 @@ void* generalized_thread(void *arg) {
                 }
                 num_times++;
             }
-            debug_loss+=log_message(task->name, format_message(num_times,"For the wcet we had to repeat the task fun as many times as:"),task->log,0);
+            debug_loss+=log_message(task->name, format_message(num_times,"For the wcet we had to repeat the task function as many times as:"),task->log,0);
             elapsed = std::chrono::system_clock::now() - start;
             debug_loss+=log_message(task->name, format_message(elapsed.count(),"We actually took ms:"),task->log,0);
         }
@@ -239,7 +239,7 @@ void* generalized_thread(void *arg) {
 
         if (task->cpumutex){
         pthread_mutex_unlock(task->cpumutex);
-        //debug_loss+=log_message(task->name, "CPUmutex Resource released",task->log,0);
+        debug_loss+=log_message(task->name, "CPUmutex Resource released",task->log,0);
         }
         waitNextActivation(task);
     }
