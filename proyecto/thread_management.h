@@ -17,10 +17,18 @@ typedef struct {
     pthread_mutex_t* mutex;    // Optional mutex for shared resource
     task_code task_function;   // Function pointer to the task-specific code
     int log;
+    pthread_mutex_t* cpumutex;    // Optional mutex for shared resource
+    int offset;
+    struct timespec nextActivation;
 } task_t;
 
 double log_message(const char* task_name, const std::string& message, int LOG);
 
 void* generalized_thread(void *arg);
+
+void startPeriodicTimer(task_t* perThread);
+
+void waitNextActivation(task_t* t);
+
 
 #endif // THREAD_MANAGEMENT_H

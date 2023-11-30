@@ -6,13 +6,17 @@
 #include <chrono>
 #include <iomanip>
 #include <unistd.h>
+#include <sys/time.h>
+#include <sstream>
+#define NSEC_PER_SEC 1000000000ULL
+#define TOL 0
 
 std::atomic<bool> run_flag(true);
 
 // Function to create formatted message
-std::string format_message(float value) {
+std::string format_message(float value,const std::string& message) {
     std::ostringstream stream;
-    stream << "missed deadline by " << value << " ms";
+    stream << message << value << " ms";
     return stream.str();
 }
 
@@ -51,26 +55,105 @@ double log_message(const char* task_name, const std::string& message, int LOG) {
     return elapsed.count();
 }
 
+static inline void timespecAddUs(timespec *t, uint64_t d)
+{
+    d *= 1000;
+    d += t->tv_nsec;
+    while (d >= NSEC_PER_SEC) {
+        d -= NSEC_PER_SEC;
+        t->tv_sec += 1;
+    }
+    t->tv_nsec = static_cast<long>(d);
+}
+
+void waitNextActivation(task_t *t)
+{
+    clock_nanosleep(CLOCK_REALTIME, TIMER_ABSTIME, &t->nextActivation, NULL);
+    timespecAddUs(&t->nextActivation, (t->period_ms-TOL)*1000); //convert to micro
+}
+
+void startPeriodicTimer(task_t* perThread)
+{
+    clock_gettime(CLOCK_REALTIME, &perThread->nextActivation);
+    timespecAddUs(&perThread->nextActivation, perThread->offset*1000);
+}
+
+
+std::chrono::duration<double, std::milli> timespecToDuration(const timespec& ts) {
+    auto secs = std::chrono::duration_cast<std::chrono::duration<double, std::milli>>(std::chrono::seconds(ts.tv_sec));
+    auto nanosecs = std::chrono::duration_cast<std::chrono::duration<double, std::milli>>(std::chrono::nanoseconds(ts.tv_nsec));
+    return secs + nanosecs;
+}
+
+timespec timePointToTimespec(const std::chrono::system_clock::time_point& tp) {
+    auto duration_since_epoch = tp.time_since_epoch();
+    auto seconds = std::chrono::duration_cast<std::chrono::seconds>(duration_since_epoch);
+    auto nanoseconds = std::chrono::duration_cast<std::chrono::nanoseconds>(duration_since_epoch - seconds);
+
+    timespec ts;
+    ts.tv_sec = seconds.count();
+    ts.tv_nsec = nanoseconds.count();
+    return ts;
+}
+
+double timespecDiffToDouble(const struct timespec *ts1, const struct timespec *ts2) {
+    long sec_diff = ts2->tv_sec - ts1->tv_sec;
+    long nsec_diff = ts2->tv_nsec - ts1->tv_nsec;
+
+    // Handle nanosecond overflow
+    if (nsec_diff < 0) {
+        sec_diff--;
+        nsec_diff += 1000000000L; // 1e9
+    }
+
+    // Convert to double
+    return (double)sec_diff + (double)nsec_diff / 1e9;
+}
+
+int compareTimespec(const struct timespec *ts1, const struct timespec *ts2) {
+    if (ts1->tv_sec < ts2->tv_sec) {
+        return -1;
+    } else if (ts1->tv_sec > ts2->tv_sec) {
+        return 1;
+    } else if (ts1->tv_nsec < ts2->tv_nsec) {
+        return -1;
+    } else if (ts1->tv_nsec > ts2->tv_nsec) {
+        return 1;
+    }
+    return 0;
+}
 
 void* generalized_thread(void *arg) {
     task_t *task = (task_t *) arg;
-    struct timespec next_execution_time;
+    //struct timespec next_execution_time;
     double debug_loss = 0;
+    startPeriodicTimer(task);
+    timespecAddUs(&task->nextActivation, (task->period_ms-TOL)*1000); //convert to micro
     while (run_flag) {
         debug_loss=0;
-        auto start = std::chrono::system_clock::now();
+
         // Log task start
-        debug_loss+=log_message(task->name, "Task started",task->log);
 
         if (task->mutex) {
             // Log resource acquisition attempt
-            debug_loss+=log_message(task->name, "Attempting to acquire resource",task->log);
+            //debug_loss+=log_message(task->name, "Attempting to acquire resource",task->log);
 
             pthread_mutex_lock(task->mutex);
 
             // Log resource acquisition
-            debug_loss+= log_message(task->name, "Resource acquired",task->log);
+            //debug_loss+= log_message(task->name, "Resource acquired",task->log);
         }
+
+        pthread_mutex_lock(task->cpumutex);
+        auto start = std::chrono::system_clock::now();
+        debug_loss+=log_message(task->name, "Task started - CPU and Resources Acquired",task->log);
+
+        timespec start_timespec = timePointToTimespec(start);
+        if (compareTimespec(&start_timespec,&task->nextActivation)>0){
+            debug_loss += log_message(task->name,"missed dealine",task->log);
+        }
+        double act_diff= timespecDiffToDouble(&start_timespec,&task->nextActivation);
+        debug_loss+=log_message(task->name, format_message(act_diff,"Activation difference:"),task->log);
 
         task->task_function();
 
@@ -79,8 +162,9 @@ void* generalized_thread(void *arg) {
 
         // Simulate task execution (WCET)
         double remainingTime_ms = task->wcet_ms - elapsed.count();
-
+        debug_loss+=log_message(task->name, format_message(elapsed.count(),"Elapsed ms:"),task->log);
         if (remainingTime_ms > 0.0) { // dont account time for logging
+            debug_loss+=log_message(task->name, format_message(remainingTime_ms,"Sleeping ms:"),task->log);
             usleep(static_cast<useconds_t>((remainingTime_ms) * 1000));
         }
 
@@ -93,23 +177,18 @@ void* generalized_thread(void *arg) {
 
 
         // Log task end
-        debug_loss+=log_message(task->name, "Task completed",task->log);
+        debug_loss+=log_message(task->name, "Task completed - CPU (and resources) Released",task->log);
+
 
         end = std::chrono::system_clock::now();
-        elapsed = end - start;
-        remainingTime_ms = task->period_ms + debug_loss - elapsed.count();
-        if (remainingTime_ms < 0.0){
-            debug_loss += log_message(task->name,format_message(-1*remainingTime_ms),task->log);
-        }
+        //elapsed = end.count() - timespecToDuration(task->nextActivation);
+        //remainingTime_ms = task->period_ms + debug_loss - elapsed.count();
 
-        // Calculate next execution time
-        next_execution_time.tv_nsec += task->period_ms * 1000000;
-        if (next_execution_time.tv_nsec >= 1000000000) {
-            next_execution_time.tv_sec += 1;
-            next_execution_time.tv_nsec -= 1000000000;
-        }
+        pthread_mutex_unlock(task->cpumutex);
 
-        clock_nanosleep(CLOCK_MONOTONIC, TIMER_ABSTIME, &next_execution_time, NULL);
+        waitNextActivation(task);
     }
     return NULL;
 }
+
+

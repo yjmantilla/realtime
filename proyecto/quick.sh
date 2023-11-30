@@ -1,4 +1,4 @@
 make clean
 make
-sudo ./main 1000
+sudo ./main 100 1
 python3 log_analysis.py

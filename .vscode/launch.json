@@ -5,8 +5,8 @@
             "name": "C/C++ Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}.o", // Update this to the path of your compiled executable
-            "args": [], // Command line arguments for your program if needed
+            "program": "${fileDirname}/${fileBasenameNoExtension}", // Update this to the path of your compiled executable
+            "args": ["100","0"], // Command line arguments for your program if needed
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}", // Set the working directory to your project folder
             "environment": [],
