@@ -18,6 +18,9 @@ CXX_UBUNTU = g++
 # Compiler for Raspberry Pi 4
 CXX_RPI4 = aarch64-rpi4-linux-gnu-g++
 
+# Additional flags for static compilation for Raspberry Pi 4
+STATIC_FLAGS = -static
+
 # Default target (Ubuntu)
 all: $(TARGET_UBUNTU)
 
@@ -28,9 +31,9 @@ rpi4: $(TARGET_RPI4)
 $(TARGET_UBUNTU): $(OBJ_UBUNTU)
 	$(CXX_UBUNTU) $(CFLAGS) -o $@ $^
 
-# Rule for linking Raspberry Pi 4
+# Rule for linking Raspberry Pi 4 (statically)
 $(TARGET_RPI4): $(OBJ_RPI4)
-	$(CXX_RPI4) $(CFLAGS) -o $@ $^
+	$(CXX_RPI4) $(CFLAGS) $(STATIC_FLAGS) -o $@ $^
 
 # Rule for compiling for Ubuntu
 %_ubuntu.o: %.cpp
