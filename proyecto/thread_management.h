@@ -18,8 +18,10 @@ typedef struct {
     task_code task_function;   // Function pointer to the task-specific code
     int log;
     pthread_mutex_t* cpumutex;    // Optional mutex for shared resource
-    int offset;
+    int offset; // from the start
     struct timespec nextActivation;
+    float overheadOffset; // amount of ms to correct (substract) the next activation to account for logging overhead
+    float deadlineTolerance; //amount of milliseconds to consider a deadline miss
 } task_t;
 
 double log_message(const char* task_name, const std::string& message, int LOG, int offset_ms);

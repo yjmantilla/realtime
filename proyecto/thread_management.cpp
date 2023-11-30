@@ -9,8 +9,6 @@
 #include <sys/time.h>
 #include <sstream>
 #define NSEC_PER_SEC 1000000000ULL
-#define TOL 0.1 //ms , for approximate debug loss around 0.1ms
-#define DEADTOL 1 //ms
 
 std::atomic<bool> run_flag(true);
 
@@ -76,7 +74,7 @@ static inline void timespecAddUs(timespec *t, uint64_t d)
 
 void waitNextActivation(task_t *t)
 {
-    timespecAddUs(&t->nextActivation, (t->period_ms-TOL)*1000); //convert to micro
+    timespecAddUs(&t->nextActivation, (t->period_ms-t->overheadOffset)*1000); //convert to micro
     clock_nanosleep(CLOCK_REALTIME, TIMER_ABSTIME, &t->nextActivation, NULL);
 }
 
@@ -181,7 +179,7 @@ void* generalized_thread(void *arg) {
         // act_diff = timespecDiffToDouble(A,B)=B-A NOTE!!!!!!!!!!!
         double act_diff= timespecDiffToDouble(&task->nextActivation,&start_timespec);
 
-        if (act_diff>=(double) DEADTOL/1000 && count > 1){
+        if (act_diff>=(double) task->deadlineTolerance/1000 && count > 1){
             debug_loss += log_message(task->name,"missed dealine",task->log,0);
         }
         if (count > 1){

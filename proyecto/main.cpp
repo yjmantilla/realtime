@@ -22,11 +22,15 @@ int main(int argc, char* argv[]) {
     int log=0;
     int cpumutex=0;
     int pinh=0;
-    if (argc >= 3) {
+    float correctionOffset=0;
+    float deadlineTolerance=0;
+    if (argc >= 7) {
         runtime_ms = std::atof(argv[1]);
         log = std::atoi(argv[2]);
         cpumutex=std::atoi(argv[3]);
         pinh=std::atoi(argv[4]);
+        correctionOffset=std::atof(argv[5]);
+        deadlineTolerance=std::atof(argv[6]);
     }else{
         return 1;
     }
@@ -59,13 +63,13 @@ int main(int argc, char* argv[]) {
 
     // Define task properties
     task_t tasks[] = {
-        {7,"SCHED_BUS", 25, 5, NULL, sched_bus_code, log,cpumutex ? &cpu_mutex : NULL,0,{}},        // SCHED_BUS
-        {6,"DATA",25, 5, &infobus_mutex, data_code, log,cpumutex ? &cpu_mutex : NULL,1,{}},   // DATA
-        {5,"CONTROL", 50, 5, &infobus_mutex, control_code, log,cpumutex ? &cpu_mutex : NULL,2,{}},// CONTROL
-        {4,"RADIO", 50, 5, NULL, radio_code, log,cpumutex ? &cpu_mutex : NULL,3,{}},            // RADIO
-        {3,"VIDEO", 50, 5, NULL, video_code, log,cpumutex ? &cpu_mutex : NULL,4,{}},            // VIDEO
-        {2,"MEASURE", 100, 10, &infobus_mutex, measure_code, log,cpumutex ? &cpu_mutex : NULL,5,{}}, // MEASURE
-        {1,"FORECAST", 100, 15, &infobus_mutex, forecast_code, log,cpumutex ? &cpu_mutex : NULL,6,{}} // FORECAST
+        {7,"SCHED_BUS", 25, 5, NULL, sched_bus_code, log,cpumutex ? &cpu_mutex : NULL,0,{},correctionOffset,deadlineTolerance},        // SCHED_BUS
+        {6,"DATA",25, 5, &infobus_mutex, data_code, log,cpumutex ? &cpu_mutex : NULL,1,{},correctionOffset,deadlineTolerance},   // DATA
+        {5,"CONTROL", 50, 5, &infobus_mutex, control_code, log,cpumutex ? &cpu_mutex : NULL,2,{},correctionOffset,deadlineTolerance},// CONTROL
+        {4,"RADIO", 50, 5, NULL, radio_code, log,cpumutex ? &cpu_mutex : NULL,3,{},correctionOffset,deadlineTolerance},            // RADIO
+        {3,"VIDEO", 50, 5, NULL, video_code, log,cpumutex ? &cpu_mutex : NULL,4,{},correctionOffset,deadlineTolerance},            // VIDEO
+        {2,"MEASURE", 100, 10, &infobus_mutex, measure_code, log,cpumutex ? &cpu_mutex : NULL,5,{},correctionOffset,deadlineTolerance}, // MEASURE
+        {1,"FORECAST", 100, 15, &infobus_mutex, forecast_code, log,cpumutex ? &cpu_mutex : NULL,6,{},correctionOffset,deadlineTolerance} // FORECAST
     };
     
     //debug
