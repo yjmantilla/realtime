@@ -20,9 +20,13 @@ int calculate_priority(const task_t& task) {
 int main(int argc, char* argv[]) {
     int runtime_ms = 100; // Default runtime value
     int log=0;
+    int cpumutex=0;
+    int pinh=0;
     if (argc >= 3) {
         runtime_ms = std::atof(argv[1]);
         log = std::atoi(argv[2]);
+        cpumutex=std::atoi(argv[3]);
+        pinh=std::atoi(argv[4]);
     }else{
         return 1;
     }
@@ -30,20 +34,38 @@ int main(int argc, char* argv[]) {
     auto start = std::chrono::high_resolution_clock::now();
 
     pthread_mutex_t infobus_mutex;
-    pthread_mutex_init(&infobus_mutex, NULL);
+    pthread_mutexattr_t mutex_attr;
+
+    // Set the priority inheritance protocol for the mutex attribute
+    int protocol = PTHREAD_PRIO_INHERIT;
+    pthread_mutexattr_setprotocol(&mutex_attr, protocol);
+
+    if (pinh){
+        // Initialize infobus_mutex with the modified attributes
+        pthread_mutex_init(&infobus_mutex, &mutex_attr);
+    }
+    else{
+        pthread_mutex_init(&infobus_mutex, NULL);
+    }
+
+    // Destroy the mutex attribute object, as it is no longer needed
+    pthread_mutexattr_destroy(&mutex_attr);
 
     pthread_mutex_t cpu_mutex;
+
     pthread_mutex_init(&cpu_mutex, NULL);//another option to simulate single core execution?
+
+
 
     // Define task properties
     task_t tasks[] = {
-        {7,"SCHED_BUS", 25, 5, NULL, sched_bus_code, log,&cpu_mutex,0,{}},        // SCHED_BUS
-        {6,"DATA",25, 5, &infobus_mutex, data_code, log,&cpu_mutex,1,{}},   // DATA
-        {5,"CONTROL", 50, 5, &infobus_mutex, control_code, log,&cpu_mutex,2,{}},// CONTROL
-        {4,"RADIO", 50, 5, NULL, radio_code, log,&cpu_mutex,3,{}},            // RADIO
-        {3,"VIDEO", 50, 5, NULL, video_code, log,&cpu_mutex,4,{}},            // VIDEO
-        {2,"MEASURE", 100, 10, &infobus_mutex, measure_code, log,&cpu_mutex,5,{}}, // MEASURE
-        {1,"FORECAST", 100, 15, &infobus_mutex, forecast_code, log,&cpu_mutex,6,{}} // FORECAST
+        {7,"SCHED_BUS", 25, 5, NULL, sched_bus_code, log,cpumutex ? &cpu_mutex : NULL,0,{}},        // SCHED_BUS
+        {6,"DATA",25, 5, &infobus_mutex, data_code, log,cpumutex ? &cpu_mutex : NULL,1,{}},   // DATA
+        {5,"CONTROL", 50, 5, &infobus_mutex, control_code, log,cpumutex ? &cpu_mutex : NULL,2,{}},// CONTROL
+        {4,"RADIO", 50, 5, NULL, radio_code, log,cpumutex ? &cpu_mutex : NULL,3,{}},            // RADIO
+        {3,"VIDEO", 50, 5, NULL, video_code, log,cpumutex ? &cpu_mutex : NULL,4,{}},            // VIDEO
+        {2,"MEASURE", 100, 10, &infobus_mutex, measure_code, log,cpumutex ? &cpu_mutex : NULL,5,{}}, // MEASURE
+        {1,"FORECAST", 100, 15, &infobus_mutex, forecast_code, log,cpumutex ? &cpu_mutex : NULL,6,{}} // FORECAST
     };
     
     //debug
@@ -52,7 +74,6 @@ int main(int argc, char* argv[]) {
     const int num_tasks = sizeof(tasks) / sizeof(task_t);
     pthread_t threads[num_tasks];
     pthread_attr_t attr; // Attribute for thread properties
-    
 
     // Define the CPU set for affinity
     cpu_set_t cpuset;
