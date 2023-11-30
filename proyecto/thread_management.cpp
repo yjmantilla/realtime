@@ -151,7 +151,7 @@ void* generalized_thread(void *arg) {
     //struct timespec next_execution_time;
     double debug_loss = 0;
     startPeriodicTimer(task);
-    unsigned long long count;
+    unsigned long count;
     while (run_flag) {
         debug_loss=0;
         count++;
