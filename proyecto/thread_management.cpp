@@ -144,7 +144,10 @@ void* generalized_thread(void *arg) {
             //debug_loss+= log_message(task->name, "Resource acquired",task->log);
         }
 
-        pthread_mutex_lock(task->cpumutex);
+        if (task->cpumutex){
+            pthread_mutex_lock(task->cpumutex);
+        }
+
         auto start = std::chrono::system_clock::now();
         debug_loss+=log_message(task->name, "Task started - CPU and Resources Acquired",task->log);
 
@@ -184,8 +187,9 @@ void* generalized_thread(void *arg) {
         //elapsed = end.count() - timespecToDuration(task->nextActivation);
         //remainingTime_ms = task->period_ms + debug_loss - elapsed.count();
 
+        if (task->cpumutex){
         pthread_mutex_unlock(task->cpumutex);
-
+        }
         waitNextActivation(task);
     }
     return NULL;
