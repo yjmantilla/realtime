@@ -169,6 +169,7 @@ void* generalized_thread(void *arg) {
         if (task->cpumutex){
             //debug_loss+=log_message(task->name, "Attempting to acquire CPUmutex",task->log,0);
             pthread_mutex_lock(task->cpumutex);
+            printf("cpumutex");
             //debug_loss+= log_message(task->name, "CPUmutex Resource acquired",task->log,0);
         }
 
@@ -186,17 +187,38 @@ void* generalized_thread(void *arg) {
             debug_loss+=log_message(task->name, format_message(act_diff*1000,"Activation difference [ms]:"),task->log,0);
         }
 
+        auto start_fun = std::chrono::system_clock::now();
         task->task_function();
 
         auto end = std::chrono::system_clock::now();
         std::chrono::duration<double, std::milli> elapsed = end - start;
+        std::chrono::duration<double, std::milli> elapsed_fun = end - start_fun;
+        double funtime = elapsed_fun.count();
+        debug_loss+=log_message(task->name, format_message(funtime,"1 task function took ms:"),task->log,0);
 
         // Simulate task execution (WCET)
         double remainingTime_ms = task->wcet_ms - elapsed.count();
+
+        int num_times = 0;
+
         debug_loss+=log_message(task->name, format_message(elapsed.count(),"Elapsed ms:"),task->log,0);
         if (remainingTime_ms > 0.0) { // dont account time for logging
-            debug_loss+=log_message(task->name, format_message(remainingTime_ms,"Sleeping ms:"),task->log,0);
-            usleep(static_cast<useconds_t>((remainingTime_ms) * 1000));
+            debug_loss+=log_message(task->name, format_message(remainingTime_ms,"Doing stuff for ms:"),task->log,0);
+            //usleep(static_cast<useconds_t>((remainingTime_ms) * 1000));
+
+            start = std::chrono::system_clock::now();
+            while(1){
+                task->task_function();
+                end = std::chrono::system_clock::now();
+                elapsed=end-start;
+                if(elapsed.count()> remainingTime_ms-0.01){
+                    break;
+                }
+                num_times++;
+            }
+            debug_loss+=log_message(task->name, format_message(num_times,"For the wcet we had to repeat the task fun as many times as:"),task->log,0);
+            elapsed = std::chrono::system_clock::now() - start;
+            debug_loss+=log_message(task->name, format_message(elapsed.count(),"We actually took ms:"),task->log,0);
         }
 
         if (task->mutex) {
