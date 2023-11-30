@@ -22,7 +22,7 @@ typedef struct {
     struct timespec nextActivation;
 } task_t;
 
-double log_message(const char* task_name, const std::string& message, int LOG);
+double log_message(const char* task_name, const std::string& message, int LOG, int offset_ms);
 
 void* generalized_thread(void *arg);
 
