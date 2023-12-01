@@ -1,5 +1,5 @@
 *_log.csv
-*.png
+*_log.png
 # Prerequisites
 *.d
 *.out.*
