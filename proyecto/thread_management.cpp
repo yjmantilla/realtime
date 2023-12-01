@@ -166,13 +166,6 @@ void* generalized_thread(void *arg) {
             debug_loss+= log_message(task->name, "InfoBus Resource acquired",task->log,0);
         }
 
-        if (task->cpumutex){
-            debug_loss+=log_message(task->name, "Attempting to acquire CPUmutex",task->log,0);
-            pthread_mutex_lock(task->cpumutex);
-            //printf("cpumutex");
-            debug_loss+= log_message(task->name, "CPUmutex Resource acquired",task->log,0);
-        }
-
         auto start = std::chrono::system_clock::now();
         debug_loss+=log_message(task->name, format_message(count,"Task started for the time: "),task->log,0);
         debug_loss+=log_message(task->name, "I expect to start again around this time",task->log,task->period_ms);
@@ -236,11 +229,6 @@ void* generalized_thread(void *arg) {
         //end = std::chrono::system_clock::now();
         //elapsed = end.count() - timespecToDuration(task->nextActivation);
         //remainingTime_ms = task->period_ms + debug_loss - elapsed.count();
-
-        if (task->cpumutex){
-        pthread_mutex_unlock(task->cpumutex);
-        debug_loss+=log_message(task->name, "CPUmutex Resource released",task->log,0);
-        }
         waitNextActivation(task);
     }
     return NULL;

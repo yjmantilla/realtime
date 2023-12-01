@@ -17,7 +17,6 @@ typedef struct {
     pthread_mutex_t* mutex;    // Optional mutex for shared resource
     task_code task_function;   // Function pointer to the task-specific code
     int log;
-    pthread_mutex_t* cpumutex;    // Optional mutex for shared resource
     int offset; // from the start
     struct timespec nextActivation;
     float overheadOffset; // amount of ms to correct (substract) the next activation to account for logging overhead
