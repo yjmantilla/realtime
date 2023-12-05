@@ -174,7 +174,7 @@ void* generalized_thread(void *arg) {
         double act_diff= timespecDiffToDouble(&task->nextActivation,&start_timespec);
 
         if (act_diff>=(double) task->deadlineTolerance/1000 && count > 1){
-            debug_loss += log_message(task->name,"missed dealine",task->log,0);
+            debug_loss += log_message(task->name,"missed deadline",task->log,0);
         }
         if (count > 1){
             debug_loss+=log_message(task->name, format_message(act_diff*1000,"Activation difference [ms]:"),task->log,0);
